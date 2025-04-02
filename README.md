@@ -14,7 +14,7 @@ Number of people that have submitted the flag (as of 1702, April 2): 10
 
 | Who | When | 
 | --- | --- |
-| [Mehual Arora](mailto:mehul21066@iiitd.ac.in) | 1443, April 2 |
+| [Mehul Arora](mailto:mehul21066@iiitd.ac.in) | 1443, April 2 |
 | [Shawn Theo Moses](mailto:shawn24527@iiitd.ac.in) | 1446, April 2 |
 | [Jagjot Singh](mailto:jagjot23252@iiitd.ac.in) | 1502, April 2 |
 | [Varun Agarwal](mailto:varun24605@iiitd.ac.in) | 1506, April 2 |
