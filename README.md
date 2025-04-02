@@ -10,11 +10,18 @@ Commands you might need to solve the challenge: `ls`, `cd`, `file`, `du`, `grep`
 
 When you've found the flag, please mail it to us at [evariste@sc.iitd.ac.in](mailto:evariste@sc.iiitd.ac.in).
 
-Number of people that have submitted the flag (till April 2, 1452): 2
+Number of people that have submitted the flag (as of 1646, April 2): 8
 
 | Who | When | 
 | --- | --- |
 | [Mehual Arora](mailto:mehul21066@iiitd.ac.in) | 1443, April 2 |
 | [Shawn Theo Moses](mailto:shawn24527@iiitd.ac.in) | 1446, April 2 |
+| [Jagjot Singh](mailto:jagjot23252@iiitd.ac.in) | 1502, April 2 |
+| [Varun Agarwal](mailto:varun24605@iiitd.ac.in) | 1506, April 2 |
+| [Priyanshu Kumar](mailto:priyanshu24067@iiitd.ac.in) | 1508, April 2 |
+| [Ashutosh Bhardwaj](mailto:ashutosh24135@iiitd.ac.in) | 1520, April 2 |
+| [Arpit Rajput](mailto:arpit23133@iiitd.ac.in) | 1532, April 2 |
+| [Jaideep Dahiya](mailto:jaideep23254@iiitd.ac.in) | 1546, April 2 |
+
 
 If you liked these challenges (we will do more of these if there is enough interest!), you can check out [OverTheWire](https://overthewire.org/wargames/bandit).
