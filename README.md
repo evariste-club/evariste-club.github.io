@@ -12,7 +12,7 @@ Commands you might need to solve the challenge: `ls`, `cd`, `file`, `du`, `grep`
 
 When you've found the flag, please mail it to us at [evariste@sc.iitd.ac.in](mailto:evariste@sc.iiitd.ac.in).
 
-Number of people that have submitted the flag (as of 1312, April 3): 16
+Number of people that have submitted the flag (as of 1312, April 3): 18
 
 | Who | When |
 | --- | --- |
