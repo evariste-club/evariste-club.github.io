@@ -4,6 +4,7 @@ The flag is inside an Ubuntu VM, I ask you to `ssh` into my personal computer, `
 
 The flag is stored inside the last updated directory. It is the only human-readable file whose name starts with a `-`.
 
+[Hints](hints_for_ellie.html)
 Hints and a walkthrough will be eventually uploaded; try it out first for a day or two; otherwise, look at the hints. The challenge will end after a week, around the 9th of April.
 
 Commands you might need to solve the challenge: `ls`, `cd`, `file`, `du`, `grep`, `find`, `man`, `help`, `<command> --help`.
@@ -12,7 +13,7 @@ When you've found the flag, please mail it to us at [evariste@sc.iitd.ac.in](mai
 
 Number of people that have submitted the flag (as of 0700, April 3): 16
 
-| Who | When | 
+| Who | When |
 | --- | --- |
 | [Mehul Arora](mailto:mehul21066@iiitd.ac.in) | 1443, April 2 |
 | [Shawn Theo Moses](mailto:shawn24527@iiitd.ac.in) | 1446, April 2 |
@@ -31,6 +32,5 @@ Number of people that have submitted the flag (as of 0700, April 3): 16
 | [Surat Sathi Samanta](mailto:surat22517@iiitd.ac.in) | 0051, April 3 |
 | [Pratyush Kumar](mailto:pratyush24433@iiitd.ac.in) | 0126, April 3 |
 | [Rachit Bhandari](mailto:rachit23413@iiitd.ac.in) | 0336, April 3 |
-
 
 If you liked these challenges (we will do more of these if there is enough interest!), check out [OverTheWire](https://overthewire.org/wargames/bandit).
