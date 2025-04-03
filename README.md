@@ -12,7 +12,7 @@ Commands you might need to solve the challenge: `ls`, `cd`, `file`, `du`, `grep`
 
 When you've found the flag, please mail it to us at [evariste@sc.iitd.ac.in](mailto:evariste@sc.iiitd.ac.in).
 
-Number of people that have submitted the flag (as of 0700, April 3): 16
+Number of people that have submitted the flag (as of 1312, April 3): 16
 
 | Who | When |
 | --- | --- |
@@ -33,5 +33,6 @@ Number of people that have submitted the flag (as of 0700, April 3): 16
 | [Surat Sathi Samanta](mailto:surat22517@iiitd.ac.in) | 0051, April 3 |
 | [Pratyush Kumar](mailto:pratyush24433@iiitd.ac.in) | 0126, April 3 |
 | [Rachit Bhandari](mailto:rachit23413@iiitd.ac.in) | 0336, April 3 |
+| [Keshav Singh](mailto:keshav24300@iiitd.ac.in) | 0913, April 3 |
 
 If you liked these challenges (we will do more of these if there is enough interest!), check out [OverTheWire](https://overthewire.org/wargames/bandit).
