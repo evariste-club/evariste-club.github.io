@@ -4,7 +4,7 @@ The flag is inside an Ubuntu VM, I ask you to `ssh` into my personal computer, `
 
 The flag is stored inside the last updated directory. It is the only human-readable file whose name starts with a `-`.
 
-[Getting you started](hints_for_ellie.html)
+[Walkthrough](hints_for_ellie.html)
 
 The challenge will end after a week, around the 9th of April.
 
