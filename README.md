@@ -4,15 +4,15 @@ The flag is inside an Ubuntu VM, I ask you to `ssh` into my personal computer, `
 
 The flag is stored inside the last updated directory. It is the only human-readable file whose name starts with a `-`.
 
-[Walkthrough](hints_for_ellie.html)
-
-The challenge will end after a week, around the 9th of April.
-
 Commands you might need to solve the challenge: `ls`, `cd`, `file`, `du`, `grep`, `find`, `man`, `help`, `<command> --help`.
+
+[Walkthrough](hints_for_ellie.html) (1349, April 6)
+
+The box will shut down after a week, around the 9th of April.
 
 When you've found the flag, please mail it to us at [evariste@sc.iitd.ac.in](mailto:evariste@sc.iiitd.ac.in).
 
-Number of people that have submitted the flag (as of 1325, April 6): 22
+Number of people that have submitted the flag (as of 1325, April 6): 23
 
 | Who | When |
 | --- | --- |
