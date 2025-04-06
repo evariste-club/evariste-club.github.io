@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/40d5c782-f72c-4c4d-ba31-8c7db480b988)# Ellie
+# Ellie
 
 The flag is inside an Ubuntu VM, I ask you to `ssh` into my personal computer, `192.168.33.113` as user `first_time` whose password is `GH{}()[]`, after which you'll be automatically redirected to the VM (which is at `192.168.124.34`). You'll be prompted for confirmation by `ssh` when it's your first time, so you'll have to say *yes* to that.
 
@@ -12,7 +12,7 @@ Commands you might need to solve the challenge: `ls`, `cd`, `file`, `du`, `grep`
 
 When you've found the flag, please mail it to us at [evariste@sc.iitd.ac.in](mailto:evariste@sc.iiitd.ac.in).
 
-Number of people that have submitted the flag (as of 2240, April 3): 22
+Number of people that have submitted the flag (as of 1325, April 6): 22
 
 | Who | When |
 | --- | --- |
@@ -38,5 +38,6 @@ Number of people that have submitted the flag (as of 2240, April 3): 22
 | [Manish Anand Singh](mailto:manish24331@iiitd.ac.in) | 1845, April 3 |
 | [Tejash Prasad](mailto:tejash22539@iiitd.ac.in) |  2100, April 3 |
 | [Somil Gupta](mailto:somil24559@iiitd.ac.in) |  1813, April 4 |
+| [Aditya Jain](mailto:aditya21511@iiitd.ac.in) |  2209, April 5 |
 
 If you liked these challenges (we will do more of these if there is enough interest!), check out [OverTheWire](https://overthewire.org/wargames/bandit).
