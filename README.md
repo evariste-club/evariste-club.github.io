@@ -8,12 +8,13 @@ Commands you might need to solve the challenge: `ls`, `cd`, `file`, `du`, `grep`
 
 [Walkthrough](hints_for_ellie.html) (1349, April 6)
 
-The box will shut down after a week, around the 9th of April.
+Ellie shutdown at 1120, April 10
 
 When you've found the flag, please mail it to us at [evariste@sc.iitd.ac.in](mailto:evariste@sc.iiitd.ac.in).
 
-Number of people that have submitted the flag (as of 1325, April 6): 23
+Number of people that have submitted the flag (as of shutdown): 24
 
+People who submitted before walkthrough:
 | Who | When |
 | --- | --- |
 | [Mehul Arora](mailto:mehul21066@iiitd.ac.in) | 1443, April 2 |
