@@ -7,7 +7,7 @@ man ssh
 ```
 
 Output:
-![Output of man ssh](image.png)
+![Output of man ssh](../images/ellie-image.png)
 
 Take a look at the highlighted part, I mentioned you should `ssh` into `192.168.33.113` (which is our *host*) as user `first_time`, so that makes our final command to be
 
@@ -16,7 +16,7 @@ ssh first_time@192.168.33.113
 ```
 
 Executing this for the first time, you will get something like this:
-![Host authenticity](image-1.png)
+![Host authenticity](../images/ellie-image-1.png)
 
 You get this because `ssh` cannot verify if I'm a good guy or not, say *yes* to that. After that you'll be asked to put in the password `GH{}()[]`, then you'll be greeted and we'll wait for me to automatically redirect you to a virtual machine I've set up (I don't want you snooping around on my laptop!). You don't have to worry about this step, but just in case you were curious, this is why you will see two IP addresses when you exit.
 
@@ -31,14 +31,13 @@ That's it for this one, I'll keep adding stuff here till you finally get to the 
 ## Walkthrough
 
 I mentioned the flag is in the least updated directory, let's take a look at the manual page of `ls` with `man ls`.
-
 Output:
-![Out of man ls](image-2.png)
+![Out of man ls](../images/ellie-image-2.png)
 
 Take a look at the `-a` and `-c` flags, that's what we need. We can also use the `-l` flag, that'll help us too.
 
 Output
-![ls -alc](image-3.png)
+![ls -alc](../images/ellie-image-3.png)
 
 You'll see my terminal *probably* looks better than yours, that's because I'm using `bash` which provided a bunch of helpful features. But mainly, look at the output (ignore the `.ssh`, `.bashrc`, `.hushlogin`, `.`, and `..`). The `.orisit` directory is what we need. Let us now change into that directory with `cd`. The command to do so is
 
@@ -48,7 +47,7 @@ cd .orisit
 
 Now we have a bunch of files, the flag is in the human readable file, taking a look at the man page of `file`, we see it tells us exactly what we need.
 
-![man file](image-4.png)
+![man file](../images/ellie-image-4.png)
 
 Now you could go ahead and run `file` for every single file, but a better way is to use the glob, `*`, which encompasses everything all at once. But running `file *` would give you a ton of errors, that's because some files start with a hyphen (`-`) and most linux utilities think that means a different `switch` should follow, take a look at the `ls` command we ran, we *turned on* switches `a`, `l` and `c`.
 We fix this issue by prepending the glob with `./`, this expands to
@@ -65,7 +64,7 @@ file - orisit17
 
 Take a look at the following screenshot
 
-![main](image-6.png)
+![main](../images/ellie-image-6.png)
 
 You'll see the command I ran is significantly more complicated, I want you try and see what `grep` does (take a look at the manual!) and what the pipe operator (`|`) does. Play around with what happens when you don't do this.
 
@@ -76,7 +75,7 @@ All human readable files are ASCII, that's why I filtered them down so. Now, fin
 To read the contents, we use the `cat` command (or anything else like `more` or `less`).
 
 *(you'll see I used the a `\` to escape the space in the name, you could either use quotes to enclose the name)*
-![flag](image-7.png)
+![flag](../images/ellie-image-7.png)
 We now have the flag. (1321, April 4)
 
 ## Other methods
