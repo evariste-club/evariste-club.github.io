@@ -74,17 +74,11 @@ All human readable files are ASCII, that's why I filtered them down so. Now, fin
 
 To read the contents, we use the `cat` command (or anything else like `more` or `less`).
 
-<<<<<<< HEAD:markdown/hints_for_ellie.md
-*(you'll see I used the a `\` to escape the space in the name, you could either use quotes to enclose the name)*
-![flag](../images/ellie-image-7.png)
-We now have the flag. (1321, April 4)
-=======
 *(you'll see I used a `\` to escape the space in the name, you could either use quotes to enclose the name)*
 
 ![flag](image-7.png)
 
 **We now have the flag.** (1321, April 4)
->>>>>>> 4bddf5eb102924a0922122b9bad86e22e4cd34fc:hint_for_ellie.md
 
 ## Other methods
 
