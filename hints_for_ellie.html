@@ -39,6 +39,7 @@
     <div class="container-lg px-3 my-5 markdown-body">
 
         <h1><a href="https://evariste-club.github.io/">Évariste</a></h1>
+<<<<<<< HEAD
         <h1 id="let-s-begin">Let&#39;s begin</h1>
         <p>The most important command you should be aware of is <code>man</code>, it stands for manual page and it opens up the documentation of any command that supports it (which is every single command!). I asked you to <code>ssh</code> into the box, so let&#39;s take a quick look at the <code>man page</code> of <code>ssh</code> with</p>
         <pre><code class="lang-sh"><span class="hljs-attribute">man ssh</span>
@@ -92,6 +93,62 @@
         <li><p><code>grep -r &#39;flag&#39; ~ 2&gt; /dev/null</code> is another interesting one, <code>-r</code>, or <code>--recursive</code> searches for the string you provided in each file starting from whatever you mentioned, here, <code>~</code>, which expands to <code>/home/first_time</code>, your home. This works because the file actually has the word <em>flag</em> in it, so, be careful. (adding the <code>-i</code> flag would&#39;ve made it a little more foolproof.) (<a href="mailto:irfan22298@iiitd.ac.in">Mohd Irfan Raza</a>)</p>
         </li>
         </ul>
+=======
+<h1 id="let-s-begin">Let&#39;s begin</h1>
+<p>The most important command you should be aware of is <code>man</code>, it stands for manual page and it opens up the documentation of any command that supports it (which is every single command!). I asked you to <code>ssh</code> into the box, so let&#39;s take a quick look at the <code>man page</code> of <code>ssh</code> with</p>
+<pre><code class="lang-sh"><span class="hljs-attribute">man ssh</span>
+</code></pre>
+<p>Output:
+<img src="image.png" alt="Output of man ssh"></p>
+<p>Take a look at the highlighted part, I mentioned you should <code>ssh</code> into <code>192.168.33.113</code> (which is our <em>host</em>) as user <code>first_time</code>, so that makes our final command to be</p>
+<pre><code class="lang-sh"><span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">first_time</span>@<span class="hljs-keyword">192</span>.<span class="hljs-keyword">168</span>.<span class="hljs-keyword">33</span>.<span class="hljs-keyword">113</span>
+</code></pre>
+<p>Executing this for the first time, you will get something like this:
+<img src="image-1.png" alt="Host authenticity"></p>
+<p>You get this because <code>ssh</code> cannot verify if I&#39;m a good guy or not, say <em>yes</em> to that. After that you&#39;ll be asked to put in the password <code>GH{}()[]</code>, then you&#39;ll be greeted and we&#39;ll wait for me to automatically redirect you to a virtual machine I&#39;ve set up (I don&#39;t want you snooping around on my laptop!). You don&#39;t have to worry about this step, but just in case you were curious, this is why you will see two IP addresses when you exit.</p>
+<h2 id="now-the-challenge-actually-starts">Now the challenge actually starts</h2>
+<p>You may notice you are greeted with a very... limiting looking terminal, you get absolutely no information about where you are, who you are and whatever else the terminal you used to get here showed you. This is the classic <code>sh</code> shell that decades old Unix shipped with, you might wish to try out the <em>B</em>ourne <em>A</em>gain <em>SH</em>ell (let&#39;s see if you can find the command to do so).</p>
+<p>Take a look now at the commands I&#39;ve mentioned you might need, take a look at the <code>man</code> pages of them, try out running the command with <code>--help</code> or <code>-h</code> for some shorter info. Fun fact, you can type <code>man man</code> to see what the <code>man</code> command does!</p>
+<p>That&#39;s it for this one, I&#39;ll keep adding stuff here till you finally get to the flag. (1256, 3 Apr)</p>
+<h2 id="walkthrough">Walkthrough</h2>
+<p>I mentioned the flag is in the least updated directory, let&#39;s take a look at the manual page of <code>ls</code> with <code>man ls</code>.</p>
+<p>Output:
+<img src="image-2.png" alt="Out of man ls"></p>
+<p>Take a look at the <code>-a</code> and <code>-c</code> flags, that&#39;s what we need. We can also use the <code>-l</code> flag, that&#39;ll help us too.</p>
+<p>Output
+<img src="image-3.png" alt="ls -alc"></p>
+<p>You&#39;ll see my terminal <em>probably</em> looks better than yours, that&#39;s because I&#39;m using <code>bash</code> which provided a bunch of helpful features. But mainly, look at the output (ignore the <code>.ssh</code>, <code>.bashrc</code>, <code>.hushlogin</code>, <code>.</code>, and <code>..</code>). The <code>.orisit</code> directory is what we need. Let us now change into that directory with <code>cd</code>. The command to do so is</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> .orisit
+</code></pre>
+<p>Now we have a bunch of files, the flag is in the human readable file, taking a look at the man page of <code>file</code>, we see it tells us exactly what we need.</p>
+<p><img src="image-4.png" alt="man file"></p>
+<p>Now you could go ahead and run <code>file</code> for every single file, but a better way is to use the glob, <code>*</code>, which encompasses everything all at once. But running <code>file *</code> would give you a ton of errors, that&#39;s because some files start with a hyphen (<code>-</code>) and most linux utilities think that means a different <code>switch</code> should follow, take a look at the <code>ls</code> command we ran, we <em>turned on</em> switches <code>a</code>, <code>l</code> and <code>c</code>.
+We fix this issue by prepending the glob with <code>./</code>, this expands to</p>
+<pre><code class="lang-sh"><span class="hljs-keyword">file</span> .<span class="hljs-regexp">/orisit0 ./</span>orisit1 .<span class="hljs-regexp">/orisit16 ./</span>- orisit17 .<span class="hljs-regexp">/orisit 18 ...</span>
+</code></pre>
+<p>and not something like</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">file</span> - orisit17
+</code></pre>
+<p>Take a look at the following screenshot</p>
+<p><img src="image-6.png" alt="main"></p>
+<p>You&#39;ll see the command I ran is significantly more complicated, I want you try and see what <code>grep</code> does (take a look at the manual!) and what the pipe operator (<code>|</code>) does. Play around with what happens when you don&#39;t do this.</p>
+<p>Take a look at the arguments I gave to <code>file</code>. All hidden files or directories in Linux are denoted by a <code>.</code> at the start of their name, so if we wish to include them, we must use <code>.*</code> to capture them.</p>
+<p>All human readable files are ASCII, that&#39;s why I filtered them down so. Now, finally, our flag is in the file which starts with <code>-</code>. The only such file is <code>- orisit17</code>.</p>
+<p>To read the contents, we use the <code>cat</code> command (or anything else like <code>more</code> or <code>less</code>).</p>
+<p><em>(you&#39;ll see I used a <code>\</code> to escape the space in the name, you could either use quotes to enclose the name)</em></p>
+<p><img src="image-7.png" alt="flag"></p>
+<p><strong>We now have the flag.</strong> (1321, April 4)</p>
+<h2 id="other-methods">Other methods</h2>
+<ul>
+<li><p><code>cat -- &#39;- orisit17&#39;</code> also works, the <code>--</code> part tells Unix that it shall no longer interpret anything as switches after this. (<a href="mailto:priyanshu24067@iiitd.ac.in">Priyanshu Kumar</a>)</p>
+</li>
+<li><p><code>find /* -name &quot;-*&quot; 2&gt;/dev/null</code> finds every file starting with a hyphen from the root (<code>/</code>) of the filesystem, and errors are redirected to nothingness (<code>/dev/null</code> is always nothing, <code>2&gt;</code> redirects <code>stderr</code> <em>(the errors)</em> to <code>/dev/null</code> instead of the terminal, with is <code>/dev/stdout</code>). Play around with this, it&#39;s interesting. (adding <code>-type f</code> would&#39;ve made it search only files.) (<a href="mailto:arpit23133@iiitd.ac.in">Arpit Rajput</a>)</p>
+</li>
+<li><p><code>grep -r &#39;flag&#39; ~ 2&gt; /dev/null</code> is another interesting one, <code>-r</code>, or <code>--recursive</code> searches for the string you provided in each file starting from whatever you mentioned, here, <code>~</code>, which expands to <code>/home/first_time</code>, your home. This works because the file actually has the word <em>flag</em> in it, so, be careful. (adding the <code>-i</code> flag would&#39;ve made it a little more foolproof.) (<a href="mailto:irfan22298@iiitd.ac.in">Mohd Irfan Raza</a>)</p>
+</li>
+</ul>
+
+>>>>>>> 4bddf5eb102924a0922122b9bad86e22e4cd34fc
         
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"

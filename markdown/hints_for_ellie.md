@@ -68,19 +68,27 @@ Take a look at the following screenshot
 
 You'll see the command I ran is significantly more complicated, I want you try and see what `grep` does (take a look at the manual!) and what the pipe operator (`|`) does. Play around with what happens when you don't do this.
 
-Take a look at the arguments I gave to `file`, all hidden files or directories in linux are denoted by a `.` in the start of their name, so if we wish to include them, we must use `.*` to capture them.
+Take a look at the arguments I gave to `file`. All hidden files or directories in Linux are denoted by a `.` at the start of their name, so if we wish to include them, we must use `.*` to capture them.
 
 All human readable files are ASCII, that's why I filtered them down so. Now, finally, our flag is in the file which starts with `-`. The only such file is `- orisit17`.
 
 To read the contents, we use the `cat` command (or anything else like `more` or `less`).
 
+<<<<<<< HEAD:markdown/hints_for_ellie.md
 *(you'll see I used the a `\` to escape the space in the name, you could either use quotes to enclose the name)*
 ![flag](../images/ellie-image-7.png)
 We now have the flag. (1321, April 4)
+=======
+*(you'll see I used a `\` to escape the space in the name, you could either use quotes to enclose the name)*
+
+![flag](image-7.png)
+
+**We now have the flag.** (1321, April 4)
+>>>>>>> 4bddf5eb102924a0922122b9bad86e22e4cd34fc:hint_for_ellie.md
 
 ## Other methods
 
-* `cat -- '- orisit17` also works, the `--` part tells a Unix that it shall no longer interpret anything as switches after this. ([Priyanshu Kumar](mailto:priyanshu24067@iiitd.ac.in))
+* `cat -- '- orisit17'` also works, the `--` part tells Unix that it shall no longer interpret anything as switches after this. ([Priyanshu Kumar](mailto:priyanshu24067@iiitd.ac.in))
 
 * `find /* -name "-*" 2>/dev/null` finds every file starting with a hyphen from the root (`/`) of the filesystem, and errors are redirected to nothingness (`/dev/null` is always nothing, `2>` redirects `stderr` *(the errors)* to `/dev/null` instead of the terminal, with is `/dev/stdout`). Play around with this, it's interesting. (adding `-type f` would've made it search only files.) ([Arpit Rajput](mailto:arpit23133@iiitd.ac.in))
 
