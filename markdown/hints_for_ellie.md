@@ -76,7 +76,7 @@ To read the contents, we use the `cat` command (or anything else like `more` or 
 
 *(you'll see I used a `\` to escape the space in the name, you could either use quotes to enclose the name)*
 
-![flag](image-7.png)
+![flag](../images/ellie-image-7.png)
 
 **We now have the flag.** (1321, April 4)
 
