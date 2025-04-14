@@ -1,6 +1,6 @@
 # Benjamin
 
-You should `ssh` into `192.168.33.113` as `star1` with password `star1`. (It doesn't the network you're connected to, if you are outside campus, use the VPN.)
+You should `ssh` into `192.168.33.113` as `star1` with password `star1`. (It doesn't matter which network you're connected to. If you are outside campus, use the VPN. For a guide to using `ssh`, check out the [hints](../hints_for_ellie.html) I wrote for Ellie.)
 
 This time, the flag is not in the machine you'll land in! You're gonna have to search for a server named `desmond`, and the flag is on one of the services running on `desmond`.
 
