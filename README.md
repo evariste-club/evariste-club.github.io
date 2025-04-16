@@ -12,6 +12,6 @@
 
 | X | Y |
 | --- | --- |
-| Start | April 14 |
+| Start | 1600, April 15 |
 | End | |
-| Total captures | |
+| Total captures | 2 |
