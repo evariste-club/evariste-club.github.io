@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>Hints | Benjamin</title>
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Benjamin" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://evariste-club.github.io/" />
+    <meta property="og:url" content="https://evariste-club.github.io/" />
+    <meta property="og:site_name" content="Évariste" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Benjamin" />
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Hints","name":"Évariste","url":"https://evariste-club.github.io/"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=89ac1e8131dc62ce7cf9a665eac38b55baa55419">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+    <!-- Setup Google Analytics -->
+
+
+
+    <!-- You can set your favicon here -->
+    <!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+    <!-- end custom head snippets -->
+
+</head>
+
+<body>
+    <div class="container-lg px-3 my-5 markdown-body">
+
+        <h1><a href="https://evariste-club.github.io/">Évariste</a></h1>
+        <h1 id="let-s-start">Let&#39;s start</h1>
+        <p>I said you&#39;ll have to scan for a server named <code>desmond</code> on a network with the same subnet
+            mask, that was <code>255.255.255.0</code>, which could be abbreviated as <code>/24</code>, take a look at
+            the following table</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Network Bits</th>
+                    <th>Subnet Mask</th>
+                    <th>Number of hosts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/24</td>
+                    <td>255.225.225.0</td>
+                    <td>254</td>
+                </tr>
+                <tr>
+                    <td>/23</td>
+                    <td>255.255.254.0</td>
+                    <td>510</td>
+                </tr>
+                <tr>
+                    <td>/16</td>
+                    <td>255.255.0.0</td>
+                    <td>65534</td>
+                </tr>
+                <tr>
+                    <td>/8</td>
+                    <td>255.0.0.0</td>
+                    <td>16777214</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>For a complete list, take a look <a
+                href="https://www.cloudaccess.net/cloud-control-panel-ccp/157-dns-management/322-subnet-masks-reference-table.html">here</a>.
+            <a href="https://youtube.com/@networkchuck?si=w-Nr39dWBydAlSCi">NetworkChuck</a> has a good video explaining
+            what this means.
+        </p>
+        <p>Let&#39;s first take a look at the IP address of the server we&#39;re currently in by running</p>
+        <pre><code class="lang-sh"><span class="hljs-attribute">ip a</span>
+</code></pre>
+        <p>This will give us an IP, that, along with our subnet mask knowledge tells us that <code>desmond</code> must
+            have an IP whose first three <em>quartets</em> are the same (that&#39;s what 255 denotes), while the last
+            one can be anything (that&#39;s what 0 signifies).</p>
+        <p>We now wish to find <code>desmond</code>&#39;s IP address, we can run that by running a <em>no-ports</em>
+            scan via <code>nmap</code>.</p>
+        <p>Output of <code>man nmap</code>:
+            <img src="image.png" alt="man nmap">
+        </p>
+        <p>Let&#39;s see if you figure out what the command should be now (you could either try the glob character
+            <code>*</code>, or use <code>/24</code> with the IP).</p>
+        <p>When you find it, run <code>nmap</code> with only it&#39;s IP and find the services running on there.</p>
+        <p><strong>Everything is misconfigured.</strong></p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"
+        integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+</body>
+
+</html>
