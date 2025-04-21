@@ -10,8 +10,10 @@
 
 ## [Benjamin](benjamin.html)
 
+(current)
+
 | X | Y |
 | --- | --- |
 | Start | 1600, April 15 |
-| End | |
-| Total captures | 5 |
+| End | *not dead yet* |
+| Total captures | 8 |
