@@ -189,10 +189,10 @@ And then summing them up, we find that the minimum is **17710**.
 The maximum is an interesting one, our keyword is FRACTRAN, and we did an event for this, for which I released a writeup, let's search for it.
 
 ![twne](../images/benjamin-image-19.png)
-on gmail
+(on gmail)
 
 ![wef](../images/benjamin-image-20.png)
-on telegram
+(on telegram)
 
 Nice, let's open up this PDF
 
@@ -203,7 +203,7 @@ A compiler, that's what we need! Let's download and run this (take a look at the
 Running `-h`. We need PRIMEGAME, let's run it with `-p`!
 
 This is what we get:
-![alt text](<Terminal 2025-04-28 11-13-35.gif>)
+![alt text](../images/Terminal%202025-04-28%2011-13-35.gif)
 
 Hence we get a maximum value of **19268**.
 
@@ -231,6 +231,21 @@ And now we're spamming `desmond` and getting a ton of output, for the tiniest in
 There are, of course, better ways to do it, for example, consider
 
 ![s](../images/benjamin-image-28.png)
+
+In text:
+
+```sh
+for i in {17710..19268}; do
+    echo $i | nc 192.168.124.247 3002 | grep "not it" > /dev/null
+    if [[ $? -ne 0 ]]; then
+        echo The correct PIN is $i
+        echo $i | nc 192.168.124.247 3002
+    break
+    fi
+done
+```
+
+(which is slightly different than the one I actually ran)
 
 This straight away gives us the PIN, but there's a lot going on here. Let's break it down.
 

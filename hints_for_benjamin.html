@@ -210,9 +210,9 @@
         <p>The maximum is an interesting one, our keyword is FRACTRAN, and we did an event for this, for which I
             released a writeup, let&#39;s search for it.</p>
         <p><img src="images/benjamin-image-19.png" alt="twne">
-            on gmail</p>
+            (on gmail)</p>
         <p><img src="images/benjamin-image-20.png" alt="wef">
-            on telegram</p>
+            (on telegram)</p>
         <p>Nice, let&#39;s open up this PDF</p>
         <p><img src="images/benjamin-image-21.png" alt="fesrd">
             A compiler, that&#39;s what we need! Let&#39;s download and run this (take a look at the code if you like).
@@ -220,7 +220,7 @@
         <p><img src="images/benjamin-image-22.png" alt="eegr">
             Running <code>-h</code>. We need PRIMEGAME, let&#39;s run it with <code>-p</code>!</p>
         <p>This is what we get:
-            <img src="Terminal 2025-04-28 11-13-35.gif" alt="alt text">
+            <img src="images/Terminal%202025-04-28%2011-13-35.gif" alt="alt text">
         </p>
         <p>Hence we get a maximum value of <strong>19268</strong>.</p>
         <p>We&#39;re almost done, I swear!</p>
@@ -241,6 +241,17 @@
         <p><img src="images/benjamin-image-27.png" alt="the flag"></p>
         <p>There are, of course, better ways to do it, for example, consider</p>
         <p><img src="images/benjamin-image-28.png" alt="s"></p>
+        <p>In text:</p>
+        <pre><code class="lang-sh"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> {17710..19268}; <span class="hljs-keyword">do</span>
+            <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span> | nc 192.168.124.247 3002 | grep <span class="hljs-string">"not it"</span> &gt; /dev/null
+            <span class="hljs-keyword">if</span> [[ $? <span class="hljs-_">-ne</span> 0 ]]; <span class="hljs-keyword">then</span>
+                <span class="hljs-built_in">echo</span> The correct PIN is <span class="hljs-variable">$i</span>
+                <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span> | nc 192.168.124.247 3002
+            <span class="hljs-built_in">break</span>
+            <span class="hljs-keyword">fi</span>
+        <span class="hljs-keyword">done</span>
+        </code></pre>
+        <p>(which is slightly different than the one I actually ran)</p>
         <p>This straight away gives us the PIN, but there&#39;s a lot going on here. Let&#39;s break it down.</p>
         <p><img src="images/benjamin-image-29.png" alt="alt text">
             This might help.</p>
