@@ -37,10 +37,6 @@
 
 <body>
     <div class="container-lg px-3 my-5 markdown-body">
-
-        <h1><a href="https://evariste-club.github.io/">Évariste</a></h1>
-        <img src="https://styles.redditmedia.com/t5_9d23nl/styles/communityIcon_kkz5592cpapb1.png"
-            alt="benjamin-desmond">
         <h1 id="let-s-start">Let&#39;s start</h1>
         <p>I said you&#39;ll have to scan for a server named <code>desmond</code> on a network with the same subnet
             mask, that was <code>255.255.255.0</code>, which could be abbreviated as <code>/24</code>, take a look at
@@ -83,7 +79,7 @@
         </p>
         <p>Let&#39;s first take a look at the IP address of the server we&#39;re currently in by running</p>
         <pre><code class="lang-sh"><span class="hljs-attribute">ip a</span>
-</code></pre>
+        </code></pre>
         <p>This will give us an IP, that, along with our subnet mask knowledge tells us that <code>desmond</code> must
             have an IP whose first three <em>quartets</em> are the same (that&#39;s what 255 denotes), while the last
             one can be anything (that&#39;s what 0 signifies).</p>
@@ -96,11 +92,182 @@
             <code>*</code>, or use <code>/24</code> with the IP).</p>
         <p>When you find it, run <code>nmap</code> with only it&#39;s IP and find the services running on there.</p>
         <p><strong>Everything is misconfigured.</strong></p>
-
-        <h1 id="another-one">Another one</h1>
-        <img src="https://i.imgflip.com/4b0f1g.jpg" alt="another one">
-        <p>When you&#39;re knee deep, you&#39;ll be asked for something related to <i>FRACTRAN</i>, we held an event regarding this a while back, and I released a write-up. We always send everything on telegram, or on mail.</p>
-
+        <h2 id="another-one">Another one</h2>
+        <p><img src="https://i.imgflip.com/4b0f1g.jpg" alt="another one"></p>
+        <p>When you&#39;re knee deep, you&#39;ll be asked for something related to <em>FRACTRAN</em>, we held an event
+            regarding this a while back, and I released a write-up. We always send everything on telegram, or on mail.
+        </p>
+        <h2 id="walkthrough">Walkthrough</h2>
+        <p>If you read the hints for Ellie, I mentioned that you&#39;re actually <code>ssh</code>&#39;ing into my
+            personal laptop, after which you&#39;re automatically redirected to a virtual machine. Hence the IP you put
+            in may not be the IP of the machine you land it, to get the correct IP, we run</p>
+        <pre><code class="lang-sh"><span class="hljs-attribute">ip addr</span>
+        </code></pre>
+        <p>Output:
+            <img src="images/benjamin-image_1.png" alt="first">
+        </p>
+        <p>Nice! So our IP is <code>192.168.124.168</code>. We know want to discover another host living on the same
+            network and the same subnet mask, that is <code>255.255.255.0</code>, this means that the first three
+            <em>quartets</em> must be the same, so our IP for <code>desmond</code> must look like
+            <code>192.168.124.*</code>. We&#39;ll use <code>nmap</code> for this task, specifically the no-ports option
+            as that&#39;ll speed things up.</p>
+        <pre><code class="lang-sh"><span class="hljs-selector-tag">nmap</span> <span class="hljs-selector-tag">-sP</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.124</span>.*
+        </code></pre>
+        <p>Output:
+            <img src="images/benjamin-image-1.png" alt="Second">
+            Note that I used the <code>sP</code>, and not <code>sn</code>, like I previously mentioned (look at the
+            documentation!).
+        </p>
+        <p>An alternate command that also works is</p>
+        <pre><code class="lang-sh">nmap -sP <span class="hljs-number">192.168</span><span class="hljs-number">.124</span><span class="hljs-number">.0</span>/<span class="hljs-number">24</span>
+        </code></pre>
+        <p>(take a look at the table above, this method is preferred)</p>
+        <p>We have now found desmond at <code>192.168.124.247</code>, let&#39;s run <code>nmap</code> again, but this
+            time searching for ports. We&#39;ll do</p>
+        <pre><code class="lang-sh"><span class="hljs-selector-tag">nmap</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.124</span><span class="hljs-selector-class">.247</span>
+        </code></pre>
+        <p><img src="images/benjamin-image-2.png" alt="third"></p>
+        <p>We find an <code>ftp</code> server, which stands for the file transfer protocol. Fascinating, let&#39;s see
+            if we can access it.</p>
+        <pre><code class="lang-sh"><span class="hljs-selector-tag">ftp</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.124</span><span class="hljs-selector-class">.247</span>
+        </code></pre>
+        <p><img src="images/benjamin-image-3.png" alt="fourth"></p>
+        <p>I put my login credentials, we got nowhere. Let&#39;s take a look at the man page.</p>
+        <p><img src="images/benjamin-image-4.png" alt="fifth"></p>
+        <p>What&#39;s this? Let&#39;s try it</p>
+        <pre><code class="lang-sh"><span class="hljs-selector-tag">ftp</span> <span class="hljs-selector-tag">-a</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.124</span><span class="hljs-selector-class">.247</span>
+        </code></pre>
+        <p><img src="images/benjamin-image-5.png" alt="sixth">
+            We&#39;re in!</p>
+        <p>Let&#39;s now explore, typing <code>ls</code>, we see a <code>flag</code> and <code>hint</code> file. Take a
+            look at what you get when you type <code>help</code> in the terminal, which command could you use to view
+            this file?</p>
+        <p>You might try <code>get</code> but that&#39;ll give you permission errors. Let&#39;s try <code>less</code>
+        </p>
+        <p><img src="images/benjamin-image-6.png" alt="seventh"></p>
+        <p>Ope! Not that easy! Let&#39;s exit this, and try again with <code>nmap</code>.</p>
+        <p><img src="images/benjamin-image-7.png" alt="eigth"></p>
+        <pre><code class="lang-sh"><span class="hljs-selector-tag">nmap</span> <span class="hljs-selector-tag">-p-</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.124</span><span class="hljs-selector-class">.247</span>
+        </code></pre>
+        <p><code>-p-</code> tells <code>nmap</code> to scan every port.</p>
+        <p><img src="images/benjamin-image-8.png" alt="ninth"></p>
+        <p>Whoa, there&#39;s a lot more stuff going on here!</p>
+        <p>Let&#39;s use a few powerful features <code>nmap</code> provides to dig deeper. This time I&#39;ll limit the
+            ports to only the ones shown by including <code>-p696,3002,6379</code> (we&#39;re done with the
+            <code>ftp</code> service).</p>
+        <p>One more look at the man page:
+            <img src="images/benjamin-image-9.png" alt="tenth">
+        </p>
+        <p>Let&#39;s run</p>
+        <pre><code class="lang-sh">nmap -sV -sC -p696,<span class="hljs-number">3002</span>,<span class="hljs-number">6379</span> <span class="hljs-number">192.168</span><span class="hljs-number">.124</span><span class="hljs-number">.247</span>
+        </code></pre>
+        <p><img src="images/benjamin-image-10.png" alt="ele"></p>
+        <p>Fascinating, what&#39;s <code>netcat</code>? If we take a look at the commands I said you might need, theres
+            something called <code>nc</code>, let&#39;s take a look</p>
+        <p><img src="images/benjamin-image-11.png" alt="twe"></p>
+        <p>This looks promising! Let&#39;s run</p>
+        <pre><code class="lang-sh">nc <span class="hljs-number">192.168</span><span class="hljs-number">.124</span><span class="hljs-number">.247</span> <span class="hljs-number">696</span>
+        </code></pre>
+        <p>as that&#39;s the service that told us about <code>nc</code>.</p>
+        <p><img src="images/benjamin-image-13.png" alt="fourt"></p>
+        <p>Fair enough, not much information, let&#39;s try it on port 3002.</p>
+        <p><img src="images/benjamin-image-14.png" alt="fift"></p>
+        <p>We found something! No idea about the PIN though, but there&#39;s another service called <code>redis</code>
+            going on. Let&#39;s try typing <code>redis</code> in our terminal. That didn&#39;t get us anything,
+            let&#39;s search for redis on the web.</p>
+        <p><img src="images/benjamin-image-15.png" alt="sixt"></p>
+        <p>Found this on their GitHub repository, let&#39;s run <code>redis-cli</code>. We get something, let&#39;s take
+            a look at the help section.</p>
+        <p>(as a side note, running <code>apropos redis</code> would have also revealed what we needed,
+            <code>apropos</code> is the search utility in linux, take a look at the man page!)</p>
+        <p><img src="images/benjamin-image-16.png" alt="seven"></p>
+        <p>Ok, so now let&#39;s run</p>
+        <pre><code class="lang-sh"><span class="hljs-selector-tag">redis-cli</span> <span class="hljs-selector-tag">-h</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.124</span><span class="hljs-selector-class">.247</span>
+        </code></pre>
+        <p>We get... Something. This time, the man page isn&#39;t helpful. But, take a look at the help out above, we
+            see something like <code>AUTH username pass</code>, let&#39;s run that. If I put in <code>star1</code> I get
+            an error. Remember, I said everything is misconfigured. Let&#39;s try some common passwords, like</p>
+        <ul>
+            <li>admin</li>
+            <li>administrator</li>
+            <li>root</li>
+            <li>anon</li>
+            <li>anonymous</li>
+        </ul>
+        <p>Trying and checking, we&#39;ll see that <code>auth root</code> gets us in and we get an <code>OK</code>
+            message.</p>
+        <p>If you took a look at HTB, we&#39;re doing the same thing as one of their boxes, go check them out!</p>
+        <p>We now note that <code>redis</code> is a key-value NoSQL database, so there must be keys I could find. If I
+            type <code>keys</code> in the terminal, I am hinted at providing a <em>pattern</em>, lets run
+            <code>keys *</code> to find everything. We can now <code>get</code> the <em>value</em> associated to the
+            specific <em>key</em>, the <em>min</em> and <em>max</em> look interesting, so let&#39;s get them.</p>
+        <p><img src="images/benjamin-image-17.png" alt="eig"></p>
+        <p>Huh, if we get the <em>what</em> key aswell, we see the PIN is constrained, and we just found the
+            <em>min</em> and <em>max</em> of... something, our PIN probably lies between these!</p>
+        <p>Let&#39;s find the <em>min</em> first, creating a simple python script, something like the following</p>
+        <p><img src="images/benjamin-image-18.png" alt="nine"></p>
+        <p>And then summing them up, we find that the minimum is <strong>17710</strong>.</p>
+        <p>The maximum is an interesting one, our keyword is FRACTRAN, and we did an event for this, for which I
+            released a writeup, let&#39;s search for it.</p>
+        <p><img src="images/benjamin-image-19.png" alt="twne">
+            on gmail</p>
+        <p><img src="images/benjamin-image-20.png" alt="wef">
+            on telegram</p>
+        <p>Nice, let&#39;s open up this PDF</p>
+        <p><img src="images/benjamin-image-21.png" alt="fesrd">
+            A compiler, that&#39;s what we need! Let&#39;s download and run this (take a look at the code if you like).
+        </p>
+        <p><img src="images/benjamin-image-22.png" alt="eegr">
+            Running <code>-h</code>. We need PRIMEGAME, let&#39;s run it with <code>-p</code>!</p>
+        <p>This is what we get:
+            <img src="Terminal 2025-04-28 11-13-35.gif" alt="alt text">
+        </p>
+        <p>Hence we get a maximum value of <strong>19268</strong>.</p>
+        <p>We&#39;re almost done, I swear!</p>
+        <p>Last time referencing the hints for Ellie, I used the pipe operator <code>|</code>, say we run
+            <code>A | B</code>, it takes the (standard) output of <code>A</code> and gives it to <code>B</code> as the
+            standard input, effectively meaning that you don&#39;t have to manually give it to <code>B</code>.</p>
+        <p>Back to port 3002, we need to manually give it a PIN, but we can use the <code>echo</code> command to
+            automate it, take a look:</p>
+        <p><img src="images/benjamin-image-23.png" alt="efegr"></p>
+        <p>Now all we need is a simple for loop going from the min to the max, and we <code>echo</code> that variable,
+            and see if we get something. Take a look at this bash cheat sheet</p>
+        <p><img src="images/benjamin-image-24.png" alt="alt text">
+            (found at <a href="https://devhints.io/bash#loops">this link</a>)</p>
+        <p>Let&#39;s do it!</p>
+        <p><img src="images/benjamin-image-25.png" alt="alt text"></p>
+        <p>And now we&#39;re spamming <code>desmond</code> and getting a ton of output, for the tiniest instant
+            you&#39;ll see a longer output, press Control-C to stop and scroll up, you&#39;ll find</p>
+        <p><img src="images/benjamin-image-27.png" alt="the flag"></p>
+        <p>There are, of course, better ways to do it, for example, consider</p>
+        <p><img src="images/benjamin-image-28.png" alt="s"></p>
+        <p>This straight away gives us the PIN, but there&#39;s a lot going on here. Let&#39;s break it down.</p>
+        <p><img src="images/benjamin-image-29.png" alt="alt text">
+            This might help.</p>
+        <ol>
+            <li><code>grep</code> returns an <em>exit code</em> of 0 (or success) when it&#39;s able to find something
+                matching the search criteria.</li>
+            <li>It returns something non-zero when it can&#39;t,</li>
+            <li>The variable <code>?</code>, accessed via <code>$?</code> stores the exit code of the last run command.
+            </li>
+            <li>Redirecting the output (with the <code>&gt;</code> redirect) to <code>/dev/null</code>, which is a file
+                that has nothing, a black hole, if you will. We do this so we don&#39;t see the output of the command
+                we&#39;re running - we&#39;re only interested in the exit code.</li>
+            <li><code>-eq</code> is the equality operator (for numbers).</li>
+        </ol>
+        <p>I guess that&#39;s explanation enough, if you still need help with something, please send me a mail, and
+            I&#39;ll update this file.</p>
+        <p>We&#39;re done! We&#39;re done! This was a lot, took me an hour to make this walkthrough! Hope you had fun
+            playing.</p>
+        <h2 id="a-few-points">A few points</h2>
+        <ul>
+            <li>If you don&#39;t like this inline stuff, you could&#39;ve gone into the <code>/tmp</code> directory and
+                wrote the script, with <code>vi</code> there.</li>
+            <li>If you followed the exact same steps above (or in the ballpark), but didn&#39;t get the flag, it&#39;s
+                very likely someone else was also on the machine running <code>nmap</code>, which, unfortunately, breaks
+                the script accepting the PIN, and it takes me (another script) about 40 <em>cycles</em> to bring it back
+                up, so if that&#39;s you, please send me a mail.</li>
+        </ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"
         integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
