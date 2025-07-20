@@ -23,7 +23,7 @@ This will give us an IP, that, along with our subnet mask knowledge tells us tha
 We now wish to find `desmond`'s IP address, we can run that by running a *no-ports* scan via `nmap`.
 
 Output of `man nmap`:
-![man nmap](image.png)
+![man nmap](../images/benjamin-image.png)
 
 Let's see if you figure out what the command should be now (you could either try the glob character `*`, or use `/24` with the IP).
 
