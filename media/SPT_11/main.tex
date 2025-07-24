@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=20mm]{geometry}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{mathdots}
+\usepackage{graphics}
+\usepackage{tikz}
+\graphicspath{ {./images/} }
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{pifont}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\title{Speed Proving Tournament 11 Questions}
+\author{Farhan, Raunak, Ishaan, Mudit}
+\date{\today}
+\begin{document}
+\doublespacing
+\maketitle
+\section{NUMBER THEORY}
+
+\begin{enumerate}
+    \item If for natural numbers $a$ and $b$, $7 \mid a^{2}+b^{2}$, then $7 \mid a$ and $7 \mid b$
+    \item Show that the sequence 11, 111, 1111, $\dots$ contains no perfect square
+    \item Let $d$ be any positive integer not equal to 2, 5 or 13, show that we can always choose any two distinct numbers $a$ and $b$ from $\{2,5,13,d\}$ such that $ab-1$
+    \item Show that $4^{n}+n^{4}$ is composite for all integers $n\ge 2$
+    \item Let $a$, $b$, $c$ and $d$ be positive integers with $ab=cd$. Prove that $a+b+c+d$ is composite        
+    \item Prove that if the number of factors of 2 in $n!$ is $n-1$, then $n$ is a power of 2
+    \item Prove that for every prime $p$, you can construct a number having sum of digits $p$ that is divisible by $p$
+    \item Prove that 9123456780876543219 is not a perfect square
+    \item There are infinitely many primes
+    \item Prove that if seven distinct numbers are selected from $\{1, 2,\dots, 11\}$, then some two of these numbers sum to 12.
+\end{enumerate}
+
+\section{PIGEONHOLE PRINCIPLE}
+\begin{enumerate}
+    \item A set $S$ contains $n$ integers. Prove that there exists a non-empty $T \subset S$ such that sum of the elements of $T$ is a multiple of $n$
+    \item Given any 7 points inside a hexagon with side length 1, show that some two points are separated by a distance of at most 1.
+    \item For $n>1$, consider an n × n chessboard and place pieces at the centers of different squares. With 2n chess pieces on the board, show that there are 4 pieces among them that form the vertices of a parallelogram
+    \item Prove that every convex polygon with an even number of sides has a diagonal that is not parallel to any of its sides
+    \item The set $\{1,2,3,\dots,16\}$ is partitioned into three sets. Prove that one of the subsets contains some numbers $x$, $y$, $z$ (not necessarily distinct) such that $x+y=z$.
+\end{enumerate}
+
+\section{SEQUENCES}
+\begin{enumerate}
+    \item For an infinite sequence $<a_{ij}>$, $\displaystyle\sum_{i=1}^{\infty}\sum_{j=1}^{\infty} a_{ij}$ is not always equal to $\displaystyle\sum_{j=1}^{\infty}\sum_{i=1}^{\infty} a_{ij}$
+    \item Not every product of a rational number and an irrational number is irrational.
+    \item All terms of the sequence $10001, 100010001, 1000100010001,\dots$ are composite numbers
+    \item A sequence of positive integers $<a_{n}>$ is defined as follows. $a_{1}$ is an arbitrary positive integer, and for $n \ge 1$, $a_{n+1}=a_{n}/5$ if $a_{n}$ is divisible by 5, and $a_{n+1} = \floor{a_{n}\sqrt{5}}$ if $a_{n}$ is not divisible by 5. Prove that eventually the sequence will be strictly increasing
+    \item Given are the positive integers $a_{0},\dots,a_{100}$ such that $a_{1} > a_{0}$, $a_{2} = 3a_{1} - 2a_{0}$, $a_{3} = 3a_{2} - 2a_{1}$,$\dots$,$a_{100} = 3a_{99} - 2a_{98}$. Prove that $a_{100} > 299$.
+
+\end{enumerate}
+
+\section{MISCELLANEOUS}
+\begin{enumerate}
+    \item Let $ABCD$ be a quadrilateral with an inscribed circle. Prove that $AB+CD=AD+BC$
+    \item Prove that for positive integers $a$,$b$ and $c$, $\frac{b}{a+c} + \frac{c}{b+a} + \frac{a}{c+b} \geq \frac{3}{2}$
+    \item For any quadrilateral with sides $a$, $b$, $c$ and $d$, $\frac{a^{2}+b^{2}+c^{2}}{d^{2}} \geq \frac{1}{3}$
+    \item Prove that every convex polyhedron has at least two faces with the same number of sides.
+    \item There are 20 countries on a planet. Among any three of these countries, there are always two with no diplomatic relations. Prove that there are at most 200 embassies on this planet
+
+\end{enumerate}
+\pagebreak
+
+\end{document}

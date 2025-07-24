@@ -1,0 +1,255 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=20mm]{geometry}
+\usepackage[fleqn]{mathtools}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{graphics}
+\usepackage{tikz}
+\graphicspath{ {./images/} }
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\DeclareMathOperator{\Deg}{deg}
+\title{ZPC-28}
+\author{Bikramjyot, Farhan, Ishaan, Rachit}
+\date{September 13, 2023}
+\doublespacing
+\begin{document}
+
+\maketitle
+\rule{\textwidth}{1pt}
+\printanswers
+
+\title{\textbf{\underline{\fontsize{18}{12}\selectfont Instructions}}}\\
+Please read the following instructions carefully before proceeding further:\\
+\begin{enumerate}
+\item The test is of 2 hours. It will end \textit{sharp} at \textbf{8:00 pm}.
+\item Relevant reading material for all the questions has been provided in the document itself.
+\item If you are stuck on a question that you cannot figure out, move on. Nothing good ever comes out of being hung up on something.
+\item Please feel free to contact the invigilators in case of any queries.
+\item We will provide hints to questions in the last hour, depending on the participation and responses.
+\item All the best. GL HF :)\\
+\end{enumerate}
+\bigskip
+\maketitle
+\newpage
+\title{\begin{center}\textbf{\underline{\fontsize{16}{12}\selectfont GENERATING FUNCTIONS}}\end{center}}
+\section{Generating Functions}
+
+A (one-variable) generating function for a sequence $a_{0}, a_{1}, a_{2}, \ldots$ is the formal power series $a_{0}+a_{1} x+a_{2} x^{2}+\cdots$. Generating functions are useful for solving recurrences, counting certain combinatorial objects, and even just finding a nice formula for the generating function itself.
+
+The classic example of a generating function identity is
+
+$$
+\frac{1}{1-x}=1+x+x^{2}+x^{3}+\cdots
+$$
+
+Ordinarily, we think of this as the geometric series formula, which converges for $|x|<1$, but in the world of generating functions we are more concerned with the coefficients of the series than with the values of $x$.
+
+Definition. A formal power series over the variable $x$ is simply an expression of the form $c_{0}+c_{1} x+c_{2} x^{2}+\cdots=\sum_{i=0}^{\infty} c_{i} x^{i}$ where each $c_{i}$ is a complex number. ${ }^{1}$
+
+We define addition and multiplication of formal power series as follows:
+
+$$
+\begin{gathered}
+\sum_{i=0}^{\infty} a_{i} x^{i}+\sum_{i=0}^{\infty} b_{i} x^{i}=\sum_{i=0}^{\infty}\left(a_{i}+b_{i}\right) x^{i} \\
+\left(\sum_{i=0}^{\infty} a_{i} x^{i}\right) \cdot\left(\sum_{i=0}^{\infty} a_{i} x^{i}\right)=\sum_{n=0}^{\infty}\left(\sum_{i=0}^{n} a_{i} b_{n-i}\right) x^{n}
+\end{gathered}
+$$
+
+Exercise. Use the definition of formal power series multiplication to prove that the identity
+
+$$
+\frac{1}{1-x}=1+x+x^{2}+x^{3}+\cdots
+$$
+
+holds when thought of as formal power series over $x$.
+
+We also define the derivative of a formal power series by
+
+$$
+\frac{d}{d x}\left(\sum_{n=0}^{\infty} a_{n} x^{n}\right)=\sum_{i=1}^{\infty} n a_{n} x^{n-1} .
+$$
+
+The derivative behaves exactly like ordinary derivatives from calculus.
+
+${ }^{1}$ We will usually, however, encounter the case where each $c_{i}$ is an integer. Exercise. Let $F(x)$ and $G(x)$ be generating functions (formal power series over $x$ ). Use the rules for formal manipulation of power series to prove that the derivative satisfies:
+
+- $\frac{d}{d x}(F(x)+G(x))=\frac{d}{d x} F(x)+\frac{d}{d x} G(x)$
+
+- $\frac{d}{d x}(F(x) G(x))=G(x) \cdot \frac{d}{d x} F(x)+F(x) \cdot \frac{d}{d x} G(x)$
+
+- $\frac{d}{d x}(F(x) / G(x))=\left(G(x) \frac{d}{d x} F(x)-F(x) \frac{d}{d x} G(x)\right) / G(x)^{2}$.
+
+Taking derivatives enables us to find new generating functions from old ones. For instance, taking the derivative of both sides of the geometric series formula yields
+
+$$
+\frac{1}{(1-x)^{2}}=1+2 x+3 x^{2}+4 x^{3}+5 x^{4}+\cdots .
+$$
+
+This, in fact, holds for $|x|<1$, which is somewhat harder to show.
+
+\section{Using generating functions to solve recurrences}
+
+Suppose we wish to find an explicit formula for the $n$th Fibonnacci number $F_{n}$, where $F_{0}=0, F_{1}=1$, and $F_{n}=F_{n-1}+F_{n-2}$ for all $n \geq 2$. Consider the generating function
+
+$$
+G(x)=\sum_{n=0}^{\infty} F_{n} x^{n}
+$$
+
+We can manipulate this to take advantage of the recursion: we have
+
+$$
+G(x)-x G(x)-x^{2} G(x)=F_{0}+F_{1} x-F_{0} x+\sum_{n=2}^{\infty}\left(F_{n}-F_{n-1}-F_{n-2}\right) x^{n}=x .
+$$
+
+Thus $G(x)=x /\left(1-x-x^{2}\right)$. Using partial fractions and expanding each term as a geometric series, we find that
+
+$$
+G(x)=\sum_{n=0}^{\infty} \frac{1}{\sqrt{5}}\left(\left(\frac{1+\sqrt{5}}{2}\right)^{n}-\left(\frac{1-\sqrt{5}}{2}\right)^{n}\right) x^{n},
+$$
+
+and so $F_{n}=\frac{1}{\sqrt{5}}\left(\left(\frac{1+\sqrt{5}}{2}\right)^{n}-\left(\frac{1-\sqrt{5}}{2}\right)^{n}\right)$.
+
+In general, the generating function for any linear recurrence of the form
+
+$$
+A_{n}=c_{1} A_{n-1}+c_{2} A_{n-2}+\cdots+c_{k} A_{n-k}
+$$
+
+can be written as a rational function of $x$, obtained by multiplying it by the characteristic polynomial
+
+$$
+1-c_{1} x-c_{2} x^{2}-\cdots-c_{k} x^{k}
+$$
+
+and using the initial conditions to solve for the generating function. We can then use partial fraction decomposition and the geometric series formula to find an explicit formula for the $n$th coefficient. 
+
+\section{Exponential generating functions}
+
+The exponential generating function for the sequence $\left\{a_{i}\right\}_{i=0}^{\infty}$ is the series $\sum_{n=0}^{\infty} \frac{a_{n}}{n !} x^{n}$. Their product behaves somewhat differently from that of ordinary generating functions:
+
+$$
+\left(\sum_{n=0}^{\infty} \frac{a_{n}}{n !} x^{n}\right) \cdot\left(\sum_{n=0}^{\infty} \frac{b_{n}}{n !} x^{n}\right)=\sum_{n=0}^{\infty} \frac{1}{n !}\left(\sum_{k=0}^{n}\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) a_{k} b_{n-k}\right) x^{n}
+$$
+
+We define $e^{x}, \sin (x)$, and $\cos (x)$ to be the exponential generating functions shown below. Interpreting these as formal power series, they satisfy all the trigonometric identities one would expect.
+
+- $e^{x}=\sum_{n=0}^{\infty} \frac{1}{n !} x^{n}$
+
+- $\sin (x)=\sum_{n=0}^{\infty}(-1)^{n} \frac{1}{(2 n+1) !} x^{2 n+1}$
+
+- $\cos (x)=\sum_{n=0}^{\infty}(-1)^{n} \frac{1}{(2 n) !} x^{2 n}$
+
+Exercise. Using the definition of $e^{x}$ as a formal power series, show that $e^{x} e^{y}=e^{x+y}$.
+
+\section{Problems}
+\begin{questions}
+\question Find the generating function for each of the following sequences, and use it to find an explicit formula for $a_{n}$ :
+\begin{parts}
+\part $a_{0}=1, a_{1}=5, a_{n+2}=4 a_{n+1}-3 a_{n}$
+\begin{solution} $$ a_n = 2\times3^n +1$$
+\end{solution}
+\part $a_{0}=1, a_{1}=6, a_{n+2}=4 a_{n+1}-4 a_{n}$
+\begin{solution} $$ a_n = 2^n(2n+1)$$
+\end{solution}
+\part $a_{0}=0, a_{1}=5, a_{2}=47, a_{n+3}=31 a_{n+1}+30 a_{n}$
+\begin{solution} $$a_n = \frac{1}{2}((-5)^n-3\times(-1)^n)+6^n$$
+\end{solution}
+\part $a_{0}=0, a_{1}=1, a_{n+2}=a_{n+1}+2 a_{n}+1$
+\begin{solution} $$a_n = \frac{1}{6}((-1)^{n+1}+2^{n+2}-2)$$
+\end{solution}
+\part $a_{0}=a_{1}=1, a_{n+2}=a_{n+1}+6 a_{n}+n$
+\begin{solution} $$a_n = \frac{1}{180} (-6 (2 (-1)^{2n} + 3) n + 17 (-1)^n 2^{n + 2} + 13\times 3^{n + 2} - 5)$$
+\end{solution}
+\end{parts}
+
+\question \begin{parts}
+    
+\part Let $D_{n}$ be the number of derangements of $n$, that is, the number of permutations $\phi$ of $\{1,2, \ldots, n\}$ such that $\phi(i) \neq i$ for any $1 \leq i \leq n$. Find a closed form expression for the exponential generating function of $D_{n}$, and use it to find a formula for $D_{n}$ (the formula may include a finite sum.)
+\begin{solution}
+Prove that $D_{n}=nD_{n-1}+(-1)^{n}$ \newline
+$\implies D_n \frac{x^n}{n!} = nD_{n-1} \frac{x^n}{n!} + (-1)^n \frac{x^n}{n!}$ \newline
+$\displaystyle \implies \sum_{n\geq 1} D_n \frac{x^n}{n!} = \sum_{n\geq 1} nD_{n-1} \frac{x^n}{n!} + \sum_{n\geq 1} (-1)^n \frac{x^n}{n!}$ \newline
+$\displaystyle \implies G_D(x)-1 = x \sum_{n\geq 1} D_{n-1} \frac{x^{n-1}}{(n-1)!} + e^x-1 $ \newline
+$\implies G_D(x) = xG_D(x) + e^x-1$ \newline
+$\implies G_D(x)=\frac{e^x}{1-x}$
+\end{solution}
+
+\part Let $P_{n}$ be the number of ways a $2 \times 2 \times n$ pillar can be built out of $2 \times 1 \times 1$ bricks . Find a closed form expression for the generating function $\displaystyle \sum_{n=0}^{\infty} P_{n} x^{n}$.
+\begin{solution}
+The key here is realizing that breaking or desired recurrence into smaller recurrences can help us simplify it ($a_n$ computes the number of ways to tile the entire pillar and $i_n$ computes the number of ways to tile the entire pillar except two adjacent positions at the top layer)
+
+$a_0=1$, $a_1=2$, $a_2=9$, $a_n=2a_{n-1}+a_{n-2}+i_{n-1}$ $\forall$ $n \geq 2$ \newline
+$i_0=0$, $i_1=0$, $i_2=4$, $i_n=i_{n-1}+4a_{n-2}$ $\forall$ $n \geq 2$
+
+$a_n-a_{n-1}=2(a_{n-1}-a_{n-2})+(a_{n-2}-a_{n-3})+(i_n-i_{n-1})$ $\forall$ $n \geq 3$ \newline
+$a_n=3a_{n-1}+3a_{n-2}-a_{n-3}$ $\forall$ $n \geq 3$
+
+$\displaystyle \sum_{n=0}^{\infty} P_{n} x^{n} = \sum_{n=0}^{\infty} (\frac{1-n}{1-3n-3n^2+n^3}) x^{n}$
+\end{solution}
+
+\end{parts}
+
+\question Prove that:
+$$
+\sum_{\substack{i+j=n \\
+i, j \geq 0}}\left(\begin{array}{c}
+2 i \\
+i
+\end{array}\right)\left(\begin{array}{c}
+2 j \\
+j
+\end{array}\right)=4^{n}
+$$
+
+\begin{solution}
+The key here is realizing that this summation is the coefficient of $x^n$ in the multiplication of two identical generating functions for sequences, where each term $a_n={2n \choose n}$, so the generating function of the LHS is the square of the generating function for $a_n$.
+
+Assuming there exists $a \in \mathbb{R}$ and $n \in \mathbb{R}$ such that: \newline $\displaystyle (1+ax)^n=\sum_{n=0}^{\infty} {2n \choose n} x^n=\sum_{n=0}^{\infty} \frac{2n!}{n!n!} x^n$ \newline
+Differentiating we get: $\displaystyle na(1+ax)^{n-1}=\sum_{n=1}^{\infty} \frac{2n!n}{n!n!} x^{n-1}$ \newline
+Differentiating again: $\displaystyle n(n-1)a^2(1+ax)^{n-2}=\sum_{n=2}^{\infty} \frac{2n!n(n-1)}{n!n!} x^{n-2}$ \newline
+$\implies$ $na=2$ and $n(n-1)a^2=12$ at $x=0$ \newline
+$\implies$ $a=-4$ and $n=-1/2$ \newline
+The generating function for $a_n={2n \choose n}$ is $f(x)=\frac{1}{\sqrt{1-4x}}$ and the generating function that we require is $f^{2}(x)=\frac{1}{1-4x}$
+
+But $\frac{1}{1-4x}=1+4x+(4x)^2+(4x)^3+\dots$, based on which we can show that the coefficient of $x^n$ is $4^n$
+\end{solution}
+
+\question Find the number of subsets of $\{1,2, \ldots, 2000\}$, the sum of whose elements is divisible by 5 .
+\begin{solution}
+\href{https://math.stackexchange.com/questions/1618420/find-the-number-of-all-subsets-of-1-2-ldots-2015-with-n-elements-such}{StackExchange Answer}
+\end{solution}
+
+\question Let $n$ be a positive integer. Find the number of polynomials $P(x)$ with coefficients in $\{0,1,2,3\}$ such that $P(2)=n$.
+\begin{solution}
+\href{https://math.stackexchange.com/questions/3314422/find-the-number-of-polynomials-px-with-coefficients-0-1-2-3-such-that-p2}{StackExchange Answer}
+\end{solution}
+
+\question Let $p$ be an odd prime. Find the number of subsets $A$ of $\{1,2, \ldots, 2 p\}$ such that:
+\begin{itemize}
+
+\item $A$ has exactly $p$ elements, and
+
+\item the sum of all the elements of $A$ is divisible by $p$.
+\end{itemize}
+
+\begin{solution}
+\href{https://math.stackexchange.com/questions/314788/let-p-be-an-odd-prime-number-how-many-p-element-subsets-of-1-2-3-4-ldo}{StackExchange Answer}
+\end{solution}
+\end{questions}
+
+$$\square \square \square \square \square \square \square \square \square \square \square \square \square \square \square $$
+\end{document}
+
+%https://www.dropbox.com/sh/w9mfy9qtjs68xzc/AAAOrtU5GcEmE01sbNoSDqzVa/Combinatorics/Generating%20Functions%20-%20Maria%20Monks%20-%20MOP%202010.pdf?dl=0

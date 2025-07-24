@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=20mm]{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+\graphicspath{ {./images/} }
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\DeclareMathOperator{\Deg}{deg}
+\title{ZPC-27 (Epoch 2023)}
+\author{Farhan, Raunak, Ishaan, Mudit}
+\date{\today}
+\doublespacing
+\begin{document}
+
+\maketitle
+\title{\textbf{\underline{\fontsize{18}{12}\selectfont Instructions}}}\\
+Please read the following instructions carefully before proceeding further:\\
+\begin{enumerate}
+\item The test is of 2 hours and will start \textit{sharp} at \textbf{5:30 pm} and end at \textbf{7:30 pm}.
+\item Relevant reading material for all the questions has been provided in the document itself.
+\item If you are stuck on a question that you cannot figure out, move on. Nothing good ever comes out of being hung up on something.
+\item Please feel free to contact the invigilators in case of any queries.
+\item We will provide hints to questions in the last hour, depending on the participation and responses.
+\item All the best. GL HF :)\\
+\end{enumerate}
+\bigskip
+\maketitle
+\newpage
+\title{\begin{center}\textbf{\underline{\fontsize{16}{12}\selectfont TRIANGLE INEQUALITY}}\end{center}}
+\section{Introduction}
+\textbf{Triangle Inequality} is one of the most fundamental yet simple inequalities used in mathematics. It has wide applications in Euclidean Geometry, Combinatorics, Real Analysis, and so on.
+
+For any normed vector space $(V,\lVert \cdot \rVert)$, $\lVert x+y \rVert \leq \lVert x \rVert + \lVert y \rVert$ $\forall$ $x,y\in V$
+
+However, it can be used in various different forms to prove a plethora of results:
+
+\begin{itemize}
+    \item The sidelengths of a triangle $ABC$ satisfy $AB+BC > AC$
+    \item The sidelengths of a triangle $ABC$ satisfy $AC > |AB-BC|$
+    \item For $x,y\in\mathbb{R}$, $|x|+|y|\geq |x+y|$
+    \item For $x,y\in\mathbb{R}$, $||x|-|y||\leq |x-y|$
+    \item For $x_{1},x_{2},\dots,x_{n} \in\mathbb{R}$, $|x_{1}|+|x_{2}|+\dots+|x_{n}|\geq |x_{1}+x_{2}+\dots x_{n}|$
+    \item For $x_{1},x_{2},\dots,x_{n} \in\mathbb{R}$, $|x_{1}|+|x_{2}|+\dots+|x_{n}|\geq |\pm x_{1}\pm x_{2}\pm \dots\pm x_{n}|$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\newpage
+\maketitle
+\title{\begin{center}\textbf{\underline{\fontsize{18}{12}\selectfont PROBLEMS}}\end{center}}
+\begin{itemize}
+    \item The questions here are all subjective, and will be graded on how well you can convince the checker of the mathematical rigour of your solution.
+    \item The corresponding points of each question are mentioned with it. Do note that the points may or may not be proportionate to the relative difficulty of the question.
+    \item The number of problems presented is much more than what is humanly possible to solve in the given time frame. Hence, prioritise correctness and rigour over number of problems solved.
+    \item Note that any significant conclusion derived in the right direction to solve the problem may fetch you some points, so try to attempt all questions.
+\end{itemize}
+\bigskip
+\bigskip
+\bigskip
+\begin{enumerate}
+    \item Two of the altitudes of a scalar triangle ABC have lengths 4 and 12. If the length of the third altitude is also an integer, then find its largest possible value (2 points)
+    
+    \item Find the number of scalene triangles with integral side lengths and perimeter less than 14 (3 points)
+    
+    \item Ruthvik has 3 candy cane sticks of length $\alpha$, $\beta$ and $\gamma$ centimeters respectively. In one minute Ruthvik can pick any one of those 3 sticks and stretch it to increase its length by a centimeter.
+    \newline\\
+    What is the minimum number of minutes he needs to spend increasing the stick's length in order to be able to assemble a triangle of positive area. Sticks should be used as triangle's sides (one stick for one side) and their endpoints should be located at triangle's vertices. (3 points)
+
+    \textit{\textbf{Note:} Ruthvik is not allowed to break any of the sticks.}
+
+    \item If $f \colon \mathbb{Q} \mapsto \mathbb{R}$ is a function such that $|f(x)-f(y)| \leq (x-y)^{2} $ $\forall\, x,y \in \mathbb{Q}$, prove that $f$ is a constant function (3 points)
+    
+    \item For a convex cyclic quadrilateral $ABCD$, let $X$ be a point in the plane of the quadrilateral such that the sum of its distances from the vertices of the quadrilateral is minimized.
+    
+    Prove or disprove the following statement: (4 points)
+    \begin{center}
+        \textit{$X$ is the circumcenter of $ABCD$}
+    \end{center}
+
+    \textit{\textbf{Note:} If you want to disprove the statement with a counterexample, instead of just directly stating the counterexample , show how the point of minimization $X$ is at some place other than the circumcenter, i.e. verify that your counterexample is correct}
+    
+    \item Find the largest possible integer $k$, such that the following statement is true:
+    
+    Let $1729$ arbitrary non-degenerated triangles (non-zero area) be given. In every triangle the three sides are coloured, such that one is indigo, one is red and one is green. Now, for every colour separately, let us sort the lengths of the sides. We obtain
+    \newline
+    \[ \left. \begin{array}{rcl}
+& b_1 \leq b_2\leq\ldots\leq b_{1729} & \textrm{the lengths of the indigo sides }\\
+& r_1 \leq r_2\leq\ldots\leq r_{1729} & \textrm{the lengths of the red sides }\\
+\textrm{and } & w_1 \leq w_2\leq\ldots\leq w_{1729} & \textrm{the lengths of the green sides }\\
+\end{array}\right.\]
+    \newline
+    Then there exist $k$ indices $j$ such that we can form a non-degenerated triangle with side lengths $b_j$, $r_j$, $w_j$. (5 points)
+
+    \textit{\textbf{Note:} Try solving for $k$ in a different case with a smaller number of triangles, say anywhere between 1 to 1728 different triangles}
+
+\end{enumerate}
+$$\square \square \square \square \square \square \square \square \square \square \square \square \square \square \square $$
+\end{document}

@@ -1,0 +1,116 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=20mm]{geometry}
+\usepackage[fleqn]{mathtools}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{graphics}
+\usepackage{tikz}
+\graphicspath{ {./images/} }
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\DeclareMathOperator{\Deg}{deg}
+\title{ZPC-29}
+\author{Bikramjyot, Farhan, Ishaan, Rachit}
+\date{\today}
+\doublespacing
+\begin{document}
+
+\maketitle
+\rule{\textwidth}{1pt}
+\printanswers
+
+\title{\textbf{\underline{\fontsize{18}{12}\selectfont Instructions}}}\\
+Please read the following instructions carefully before proceeding further:\\
+\begin{enumerate}
+\item The test is of 2 hours. It will end \textit{sharp} at \textbf{8:00 pm}.
+\item Relevant reading material for all the questions has been provided in the document itself.
+\item If you are stuck on a question that you cannot figure out, move on. Nothing good ever comes out of being hung up on something.
+\item Please feel free to contact the invigilators in case of any queries.
+\item We will provide hints to questions in the last hour, depending on the participation and responses.
+\item All the best. GL HF :)\\
+\end{enumerate}
+\bigskip
+\maketitle
+\newpage
+\title{\begin{center}\textbf{\underline{\fontsize{16}{12}\selectfont GAMES - I}}\end{center}}
+\section{Tips and tricks:}
+
+Many problems that appear on contests are games that involve one or more player and ask for a winning strategy, which is often in the form of an algorithm or process that can be applied at each step. While game problems vary widely in topic and require a lot of creativity, there are some general strategies to keep in mind when solving game problems:
+\begin{itemize}
+\item Find an invariant or monovariant. Often if some quantity can be kept invariant or always made to decrease, it will help us find a winning strategy.
+\item Assign numbers to the objects being played with (squares on a checkerboard, for instance) in order to create the right invariant with those numbers.
+\item Look at the problem from various points of view. If there are two players, pretend that you are each for a while to see which has a winning strategy.
+\item Get your hands dirty. Play the game. It's not wasting time; it's helping you build intuition.
+\item Try some small cases. If the game is played on a $100 \times 100$ board, first play it on a $2 \times 2$ and see what happens.
+\item Look for parity arguments or other useful congruences.
+\item Consider the penultimate step, and work backwards. What is the last step that must be taken before winning the game? What steps can lead to that?
+\item Try contradiction. Assume that one of the players has a winning strategy, and prove that the other player can actually use this to win.
+\item Use induction. Sometimes we are playing a game with a certain number of stones or a certain size checkerboard, and it can't hurt to try induction. Sometimes a winning strategy for a size- $n$ game can be constructed from a winning strategy for a size- $(n-1)$ game.
+\item Remember that you don't always have to find an explicit winning strategy. Sometimes you only have to prove that there is (or is not) one, by using induction, contradiction, invariants, etc.
+\end{itemize}
+
+\section{Problems}
+\begin{questions}
+\question Jonas has a stack of 2024 blocks and starts with a score of 0, and plays a game in which he iterates the following two-step procedure:
+\begin{enumerate}
+\item Jonas picks a stack of blocks and splits it into 2 smaller stacks each with a positive number of blocks, say $a$ and $b$. (The order in which the new piles are placed does not matter.)
+
+\item Jonas adds the product of the two piles' sizes, $a b$, to his score.
+\end{enumerate}
+The game ends when there are only 1-block stacks left. What is the expected value of Jonas' score at the end of the game?
+\begin{solution} Let $E(n)$ be the expected outcome from $n$ blocks \\
+$E(n)=E(n-k)+E(k)+k(n-k)$ $\forall$ $1 \leq k \leq n$ and $E(1)=0$ \\
+$E(n)=E(n-1)+(n-1)$ has solution $E(n)=\frac{n(n-1)}{2}$ \\
+$E(2024)=2047276$
+\end{solution}
+
+\question 
+There are $x$ red chameleons, $y$ blue chameleons, and $z$ yellow chameleons playing a game. At each step, two chameleons of different colors simultaneously change to the third color. Their goal is to all become the same color. For which triples $(x, y, z)$ of nonnegative integers can the chameleons win the game?
+\begin{solution}
+$\{(x,y,z)| \text{ such that at least 2 of } x,y,z \text{ congurent mod 3}\}$
+\end{solution}
+
+\question A spider is making a web between $n > 1$ distinct leaves which are equally spaced around a circle.
+He chooses a leaf to start at, and to make the base layer he travels to each leaf one at a time, making
+a straight line of silk between each consecutive pair of leaves, such that no two of the lines of silk cross
+each other and he visits every leaf exactly once. In how many ways can the spider make the base layer
+of the web? Express your answer in terms of $n$
+
+\begin{solution}
+$n2^{n-2}$
+\end{solution}
+
+\question Start with two piles of $p$ and $q$ chips, respectively. $A$ and $B$ move alternately. A move consists in taking a chip from any pile, taking a chip from each pile, or moving a chip from one pile to the other. The winner is the one to take the last chip. Who wins, depending on the initial conditions?
+\begin{solution}
+$A$ can force a win by making $p$ and $q$ both even if initially at least one of $p$ and $q$ is
+odd. $B$ is forced to make at least one of $p$ or $q$ odd. $A$ restores the losing position
+for $B$.
+\end{solution}
+
+\question $A$ and $B$ play a game where they alternatively draw diagonals of a regular polygon of 2024 sides. They are allowed to connect two vertices if the diagonal does not intersect a previous one and the loser is the one who has no chance to make a move. Who wins?
+\begin{solution}
+$A$ wins by drawing first a main diagonal. Then to each move of $B$, he draws the same
+diagonal reflected at the center of the polygon.
+\end{solution}
+
+\question A school has an even number of students, each of whom attends exactly one of its (finitely many) classes. Each class has at least three students, and each student has exactly one "best friend" in the same school such that, whenever $\displaystyle B$ is $\displaystyle A$'s "best friend", then $\displaystyle A$ is $\displaystyle B$'s "best friend". Furthermore, each student prefers apple juice over orange juice or orange juice over apple juice, but students change their preferences from time to time. "Best friends", however, will change their preferences (which may or may not be the same) always together, at the same moment.
+
+Whatever preference each student may initially have, prove that there is always a sequence of changes of preferences which will lead to a situation in which no class will have students all of whom have the same preference.
+
+\begin{solution}
+\href{https://artofproblemsolving.com/wiki/index.php/2005_IMO_Shortlist_Problems/C1}{AOPS Answer}
+\end{solution}
+\end{questions}
+
+$$\square \square \square \square \square \square \square \square \square \square \square \square \square \square \square $$
+\end{document}
+
+%https://www.dropbox.com/sh/w9mfy9qtjs68xzc/AAAOrtU5GcEmE01sbNoSDqzVa/Combinatorics/Generating%20Functions%20-%20Maria%20Monks%20-%20MOP%202010.pdf?dl=0

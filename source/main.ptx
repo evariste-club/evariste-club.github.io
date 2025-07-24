@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+
+    <document-id>Évariste</document-id>
+
+    <macros>\newcommand{\foo}{b^{ar}}</macros>
+    <latex-image-preamble>\usepackage{tikz}</latex-image-preamble>
+  </docinfo>
+
+  <article xml:id="evariste">
+    <title>Évariste</title>
+
+    <!-- <xi:include href="./frontmatter.ptx" /> -->
+    
+    <xi:include href="./introduction.ptx" />
+    <xi:include href="./prosort.ptx" />
+    <xi:include href="./pwnhub.ptx" />
+  </article>
+
+</pretext>

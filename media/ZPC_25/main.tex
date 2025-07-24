@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{Customer Lifetime Value Analysis}
+\author{
+  Tarun Kumar Arya \\
+  IIITD, New Delhi \\
+  \texttt{tarun21295@iiitd.ac.in}
+  \and
+  Rohit Raj \\
+  IIITD, New Delhi \\
+  \texttt{rohit21279@iiitd.ac.in}
+  \and
+  Harshit Pal \\
+  IIITD, New Delhi \\
+  \texttt{harshit21255@iiitd.ac.in}
+  \and
+  Aryan Dhawan \\
+  IIITD, New Delhi \\
+  \texttt{aryan21023@iiitd.ac.in}
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In today’s business world, understanding customer behavior becomes very important. Our project aims to analyze the customer's dataset, which contains crucial information like customer basics (age, gender, etc.), brand loyalty, and purchase history. By understanding the importance of these factors and analyzing them in depth, we will gain valuable insights into customer behavior. With our ML model, businesses will optimize their strategies to maximize profits, effectively segment customers, and reduce churn.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Background and Importance of Customer Lifetime Value}
+Customer Lifetime Value (CLV) is a key financial metric used to predict the total revenue a business can expect from a customer over the entire duration of their relationship. By understanding CLV, companies can make data-driven decisions regarding marketing strategies, resource allocation, and customer service improvements. Focusing on CLV enables businesses to identify and retain high-value customers, leading to sustainable growth and profitability.
+
+\subsection{Objective and Customer Segmentation}
+In this report, we segment customers into three distinct categories—Gold, Silver, and Bronze—based on their transaction history and purchasing behavior:
+\begin{itemize}
+    \item \textbf{Gold}: Top-tier customers generating the highest CLV.
+    \item \textbf{Silver}: Customers with moderate CLV, with potential for growth.
+    \item \textbf{Bronze}: Customers with the lowest CLV, often at risk of churn.
+\end{itemize}
+
+\subsection{Business Implications of CLV Segmentation}
+Segmenting customers based on CLV helps businesses prioritize their efforts and optimize resource allocation. Personalized services and targeted interventions for each customer segment can improve customer retention and profitability.
+
+\subsection{Structure of the Report}
+This report provides a detailed analysis of customer transactions, products, and purchases. We apply machine learning techniques to segment customers based on their CLV. The report also explores feature engineering, model selection, and performance evaluation to optimize classification accuracy.
+
+\section{Literature Survey}
+% Add related work and references here.
+
+\section{Dataset and Preprocessing}
+
+\subsection{Dataset Description}
+The dataset includes various customer-related fields used to predict CLV:
+\begin{itemize}
+    \item \textbf{Transaction ID}: Unique identifier for each transaction.
+    \item \textbf{Customer ID}: Unique identifier for each customer.
+    \item \textbf{Personal Information}: Name, email, phone, address, etc.
+    \item \textbf{Purchase Details}: Total purchases, total amount spent, product category, etc.
+    \item \textbf{Feedback and Logistics}: Ratings, shipping method, payment method, etc.
+\end{itemize}
+The dataset contains 30 columns, offering comprehensive information about customer behavior.
+
+\subsection{Preprocessing}
+Preprocessing steps include handling missing values, removing duplicate records, and encoding categorical columns. Additionally, features like recency, frequency, and monetary value (RFM) were generated to measure customer interaction.
+
+\section{Methodology}
+Our methodology involves the following steps:
+\begin{enumerate}
+    \item \textbf{Feature Extraction}: Irrelevant columns were removed based on correlation with CLV.
+    \item \textbf{Handling Missing Data}: Missing data were handled using mode for categorical columns and mean for numerical columns.
+    \item \textbf{Data Encoding}: Categorical features were encoded into numerical representations.
+    \item \textbf{Model Building}: Supervised learning was applied by segmenting CLV into Gold, Silver, and Bronze categories.
+    \item \textbf{Model Training}: Multiple models were trained, including logistic regression, Naive Bayes, decision tree, and random forest.
+\end{enumerate}
+
+\section{Evaluation}
+The evaluation metric for this analysis is the segmentation of customers into three categories based on their total spending:
+\begin{itemize}
+    \item \textbf{Gold}: Top 20\% based on the 80th percentile.
+    \item \textbf{Silver}: Middle 50\% based on the 50th percentile.
+    \item \textbf{Bronze}: Remaining customers.
+\end{itemize}
+This segmentation helps in targeted marketing and customer retention.
+
+\section{Conclusion}
+This report highlights the importance of customer segmentation based on CLV. By applying machine learning techniques, businesses can make informed decisions to enhance profitability and reduce churn.
+
+\begin{thebibliography}{9}
+\bibitem{ref1} Tarun Kumar Arya, Rohit Raj, Harshit Pal, Aryan Dhawan. ``Customer Lifetime Value Analysis." IIITD.
+\end{thebibliography}
+
+\end{document}

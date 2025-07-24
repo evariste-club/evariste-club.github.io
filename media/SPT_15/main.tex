@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=20mm]{geometry}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{mathdots}
+\usepackage{graphics}
+\usepackage{tikz}
+\graphicspath{ {./images/} }
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{pifont}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\title{Speed Proving Tournament 15 Questions}
+\author{Bikramjyot, Farhan, Ishaan, Rachit}
+\begin{document}
+\doublespacing
+\maketitle
+
+\section{GEOMETRY}
+
+\begin{enumerate}
+    \item Let $n \geq 3$ be an integer. Determine the minimum number of points one has to mark inside a convex n-gon in order for the interior of any triangle with its vertices at vertices of the n-gon to contain at least one of the marked points
+
+    
+\end{enumerate}
+
+% Define the circle
+
+% \end{enumerate}
+
+\section{ALGEBRA}
+
+\begin{enumerate}
+
+    \item What is the greatest integer not exceeding the sum $\Sigma_{n=1}^{1599}{\frac{1}{\sqrt{n}}}$?
+
+    \item if $a_1 + a2 + \cdots a_n = 1$ then prove that the sum of their squares is $\geq 1/n$ (Note to self: cauchy schwarz: $(1.a + 1.b)^2 <= (1 + 1) (a^2 + b^2)$)
+    %%% 
+    
+    % \item $P(x)$ is a 4th degree polynomial with real coefficients such that $P(x) \geq x$.
+    % $P(1) = 1$, $P(2) = 4$, $P(3) = 3$.
+    % Find the value of $P(4)$
+    % \item $8a^ab^b = 27a^bb^a$. 
+    % Find the value of $a^2 + b^2$.
+    % \item Let $a,b,c$ be positive real numbers such that 
+    % \begin{align*}
+    %     \frac{a}{1+b} + \frac{b}{1+c} + \frac{c}{1+a} = 1
+    % \end{align*}
+    % Prove that $abc \leq \frac{1}{8}$
+\end{enumerate}
+
+\section{NUMBER THEORY}
+\begin{enumerate}
+      \item Find all functions $f: \mathbb{N} \rightarrow \mathbb{N}$ such that for all $n$, $f(n) + 2f(f(n)) = 3n + 5$
+      \item Find all solutions to the naturals $x^{x+y} = y^{y-x}$
+      \item Suppose that $n$ is a positive integer such that $\frac{1}{x} + \frac{1}{y} = \frac{1}{n}$ has 2005 (x,y) ordered pair solutions. Prove that n is a perfect square
+      \item For how many values of $n$ is $n(4n+1)$ a perfect square?
+%     \item Prove that for \(n \geq 2\), \(\sqrt[n]{n}\) is irrational.
+%     \item Prove that the sum of reciprocals of the first \(n\) triangular numbers is less than 2.
+%     \item The Euler's totient function of $n$, $\phi(n)$, is defined as the number of positive integers upto $n$ which are relatively prime to $n$. Find the positive integer $\leq 1000000$ such that $\frac{n}{\phi(n)}$ is maximum.
+\end{enumerate}
+%     Old questions
+
+% \begin{enumerate}
+%     \item Let $d$ be any positive integer not equal to 2, 5 or 13, show that we can always choose any two distinct numbers $a$ and $b$ from $\{2,5,13,d\}$ such that $ab-1$
+%     \item Show that $4^{n}+n^{4}$ is composite for all integers $n\ge 2$       
+%     \item Prove that if the number of factors of 2 in $n!$ is $n-1$, then $n$ is a power of 2
+%     \item Prove that for every prime $p$, you can construct a number having sum of digits $p$ that is divisible by $p$
+%     \item Prove that if seven distinct numbers are selected from $\{1, 2,\dots, 11\}$, then some two of these numbers sum to 12.
+% \end{enumerate}
+
+\section{PIGEONHOLE PRINCIPLE}
+\begin{enumerate}
+    \item Each cell of an 8×8 chess board is filled with a 0 or a 1. Prove that if we compute thesums of the numbers in each row, each column, and in each of the two diagonals, then wewill get at least three sums that are equal.
+
+    \begin{center}
+    Solution: There are 18 sums, and they can be any of the nine numbers 0 to 8. Ifthere are no three equal sums, each possible sum from 0 to 8 must occur exactly twice.Suppose without loss of generality that a total of 8 appears in a row (it cannot appearon a diagonal, as then there is only one possible way to get a sum of 0, namely the otherdiagonal). Then the sum of the numbers in any column or diagonal is at least 1, so thetwo sums of 0 must be in the rows as well, and consequently the other sum of 8 mustappear in a row too.Since there are two rows with just 0s in them, no column or diagonal can add up to 7,and similarly no column or diagonal can add up to 1. Hence these sums must occur inthe rows as well, and all the other sums must occur in the columns or diagonals.Now there are four rows which together contain exactly two 1s (the rows summing to 0,and the rows summing to 1), and similarly four rows that together contain exactly twozeros. Therefore there must be at least four columns that contain four 0s and four 1s,giving a sum of 4 each. This completes the proof.
+    \end{center}
+
+    
+    
+
+\end{enumerate}
+Old questions
+\begin{enumerate}
+    \item For $n>1$, consider an n × n chessboard and place pieces at the centres of different squares. With 2n chess pieces on the board, show that four pieces among them form the vertices of a parallelogram
+    
+    \item The set $\{1,2,3,\dots,16\}$ is partitioned into three sets. Prove that one of the subsets contains some numbers $x$, $y$, and $z$ (not necessarily distinct) such that $x+y=z$.
+    % im probably gonna die alone
+\end{enumerate}
+
+\section{SEQUENCES}
+Old questions
+\begin{enumerate}
+    \item For an infinite sequence $<a_{ij}>$, $\displaystyle\sum_{i=1}^{\infty}\sum_{j=1}^{\infty} a_{ij}$ is not always equal to $\displaystyle\sum_{j=1}^{\infty}\sum_{i=1}^{\infty} a_{ij}$
+    \item A sequence of positive integers $<a_{n}>$ is defined as follows. $a_{1}$ is an arbitrary positive integer, and for $n \ge 1$, $a_{n+1}=a_{n}/5$ if $a_{n}$ is divisible by 5, and $a_{n+1} = \floor{a_{n}\sqrt{5}}$ if $a_{n}$ is not divisible by 5. Prove that eventually, the sequence will be strictly increasing
+    \item Given are the positive integers $a_{0},\dots,a_{100}$ such that $a_{1} > a_{0}$, $a_{2} = 3a_{1} - 2a_{0}$, $a_{3} = 3a_{2} - 2a_{1}$,$\dots$,$a_{100} = 3a_{99} - 2a_{98}$. Prove that $a_{100} > 299$.
+
+\end{enumerate}
+
+\section{COMBINATORICS}
+
+    \begin{enumerate}
+        \item Show that the number of ways of stacking coins in the plane so that the bottomrow consists ofnconsecutive coins is Cn
+
+        % n = 3, 5 ways = (1/(3+1)) (6c3)
+
+        %                                          .
+        %              .     . .         .        . .
+        %    ...      . ..  . . .     . . .      . . .
+    \end{enumerate}
+
+\subsection{Old questions}
+\begin{enumerate}
+    \item Give a \textbf{combinatorial} proof that 
+    \begin{align*}
+    (n-k)\binom{n}{k} = n\binom{n-1}{k}
+    \end{align*}
+    (Note to self: no algebraic proofs allowed)
+    \item How many bit strings of length 10 contain either five consecutive 0s or five consecutive 1s?
+    \item Find the number of ways to tile a $2 \times n$ grid with $l \times k$-sized rectangles $(l \leq 2)$ (you may leave the answer in terms of matrices and determinants).
+\end{enumerate}
+
+
+
+\section{MISCELLANEOUS}
+\begin{enumerate}
+\item You pick up a meter stick with 100 ants on it. Each ant walks \(1 \, \text{cm/s}\) toward an end of the stick, and it reverses direction any time it encounters another ant. Prove that after \(100\) seconds, all ants have fallen off the stick.
+
+\end{enumerate}
+Old questions
+    
+\begin{enumerate}
+    \item Let $ABCD$ be a quadrilateral with an inscribed circle. Prove that $AB+CD=AD+BC$
+    \item Prove that for positive integers $a$,$b$ and $c$, $\frac{b}{a+c} + \frac{c}{b+a} + \frac{a}{c+b} \geq \frac{3}{2}$
+    \item For any quadrilateral with sides $a$, $b$, $c$ and $d$, $\frac{a^{2}+b^{2}+c^{2}}{d^{2}} \geq \frac{1}{3}$
+    \item Prove that every convex polyhedron has at least two faces with the same number of sides.
+
+\end{enumerate}
+\pagebreak
+
+\end{document}

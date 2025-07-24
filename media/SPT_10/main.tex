@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=20mm]{geometry}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{mathdots}
+\usepackage{graphics}
+\usepackage{tikz}
+\graphicspath{ {./images/} }
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{pifont}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\title{Speed Proving Tournament 10 Questions}
+\author{Farhan, Raunak, Ishaan, Mudit}
+\date{\today}
+\begin{document}
+\doublespacing
+\maketitle
+\section{BASIC ALGEBRA}
+
+\begin{enumerate}
+    \item Prove that all solutions of $2x^{99}+x^{98}-7x^{2}+6=0$ are not rational real numbers.
+    \item The polynomial $ax^{2}+bx+c$ with $a>0$ has real zeros $x_{1}$, $x_{2}$ with $a+b+c\geq0$ and $a-b+c\geq0$. Show that $3|x_{1}+x_{2}|<7$
+    \item If $x^{3}+px^{2}+qx+r=0$ has three real zeros, then $p^{2}\geq3q$.
+    \item Let $a$ be an irrational number and let n be an integer greater than 1. Prove that $(a+\sqrt{a^{2}-1})^{\frac{1}{n}}+(a-\sqrt{a^{2}-1})^{\frac{1}{n}}$ is irrational
+    \item Let $a$, $b$, and $c$ be distinct nonzero real numbers such that $a+\frac{1}{b}=b+\frac{1}{c}=c+\frac{1}{a}$. Prove that $|abc|=1$
+    \item Prove that for $n\geq6$, $\displaystyle\sum_{i=0}^{n} \ddfrac{1}{x_{i}^{2}}=1$ has integer solutions
+    \item Prove that $\frac{(a-b)^{2}}{8a}\leq\frac{a+b}{2}-\sqrt{ab}\leq\frac{(a-b)^{2}}{8b}$
+    \item Prove that $\frac{1}{2}\cdot\frac{3}{4}\cdots\frac{2n-1}{2n}<\frac{1}{\sqrt{3n}}$ for all positive integers n
+    \item If $gcd(a,b)=1$ and $a$ and $b$ are positive integers, $f(x)=x^{a}-1$ and $g(x)=x^{b}-1$ have only one unique common factor
+    \item Show that numbers of the form 1007, 10017, 10117, $\cdots$ are divisible by 53
+\end{enumerate}
+
+\section{COMBINATORICS}
+\begin{enumerate}
+    \item Prove that the number of ways of writing $n$ as a sum of distinct positive integers is equal to the number of ways of writing $n$ as a sum of odd positive integers.
+    \item Prove the combinatorial identity:
+    \[\sum_{k=1}^{n} k{n \choose k}^{2} = n{2n-1 \choose n-1}\]
+    \item Prove the identity:
+    \[\sum_{k=0}^{m} {m \choose k}{n+k \choose m} = \sum_{k=0}^{m} {m \choose k}{n \choose k}2^{k}\]
+    \item Prove that the set of numbers \{1, 2,$\dots$, 2005\} can be colored with two colors such that any of its 18-term arithmetic sequences contains both colors.
+    \item The numbers 1 to $2n$ are rearranged into $2n$ places numbered $1,2,3\dots2n$ and the position index is added to the rearranged numbers. Prove that among them, there exist two numbers who have the same remainder mod $2n$
+\end{enumerate}
+
+\section{GEOMETRY}
+\begin{enumerate}
+    \item Let $A$, $B$, $C$, $D$ be four vectors in $\mathbb{R}^{3}$, prove the following theorem: If, for all vectors $X$ in $\mathbb{R}^{3}$, $|\overrightarrow{AX}|^{2}$ + $|\overrightarrow{CX}|^{2}$ =$|\overrightarrow{BX}|^{2}$ + $|\overrightarrow{DX}|^{2}$, then $ABCD$ form a rectangle.
+    \item Let $A$, $B$, $C$, $D$ be four vectors in $\mathbb{R}^{3}$, prove the following theorem: $\overrightarrow{AB}\perp\overrightarrow{CD}$ $\iff$  $|\overrightarrow{AC}|^{2}$ + $|\overrightarrow{BD}|^{2}$ =$|\overrightarrow{AD}|^{2}$ + $|\overrightarrow{BC}|^{2}$
+    \item Three circles in $\mathbb{R}^{5}$ touch in pairs, and the three points of tangency are distinct. Prove that these circles lie on one sphere or in one plane
+    \item  Any four of five circles have a common point. Prove that all five circles have a common point
+    \item Given any polygon of finite number of sides, show that it has at least one internal diagonal.
+\end{enumerate}
+
+\section{GAMES}
+\begin{enumerate}
+    \item Several positive integers are written on a blackboard. One can erase any two distinct integers and write their greatest common divisor and least common multiple instead. Prove that eventually the numbers will stop changing.
+    \item A real number is written in each square of an n×n chessboard. We can perform the operation of changing all signs of the numbers in a row or a column. Prove that by performing this operation a finite number of times we can produce a new table for which the sum of each row or column is positive.
+    \item Prove that if you sort each row of a matrix, then each column, the rows are still sorted
+    \item A baker’s dozen (thirteen) bagels have the property that any twelve of them can be split into two piles of six each, which balance perfectly on the scale.Prove that all the bagels have the same weight.
+    \item A woman is imprisoned in a large ﬁeld surrounded by a circular fence. Out-side the fence is a vicious guard dog that can run four times as fast as the woman, but is trained to stay near the fence. If the woman can contrive to get to an unguarded point on the fence, she can quickly scale the fence and escape. But can she get to a point on the fence ahead of the dog?
+\end{enumerate}
+
+\section{MISCELLANEOUS}
+\begin{enumerate}
+    \item In a set of $n$ persons, any subset of four contains a person who knows the other three persons. Prove that there exists a person who knows all the others.
+    \item Prove that $(a+b \sqrt{r})^n=p+q \sqrt{r}$ implies $(a-b \sqrt{r})^n = p-q \sqrt{r}$
+    \item If $n$ is a positive integer, $\floor{\sqrt{n}+\sqrt{n+1}}=\floor{\sqrt{4n+2}}$
+    \item Prove that there is no infinite arithmetic progression whose terms are all perfect squares.
+    \item Prove that a strictly diagonally dominant matrix, i.e. a square matrix $A$ with $|A_{ii}|>\sum_{j\neq i}|A_{ij}|$ for all $i$, is always invertible
+
+\end{enumerate}
+\pagebreak
+
+\end{document}

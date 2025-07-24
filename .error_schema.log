@@ -1,0 +1,5 @@
+file:/D:/IIITD/Evariste/evariste-club.github.io/source/main.ptx:13:0:ERROR:RELAXNGV:RELAXNG_ERR_NOTELEM: Expecting an element got text
+file:/D:/IIITD/Evariste/evariste-club.github.io/source/main.ptx:2:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMWRONG: Did not expect element introduction there
+file:/D:/IIITD/Evariste/evariste-club.github.io/source/main.ptx:2:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element sidebyside, got introduction
+file:/D:/IIITD/Evariste/evariste-club.github.io/source/main.ptx:2:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element proof, got introduction
+file:/D:/IIITD/Evariste/evariste-club.github.io/source/main.ptx:3:0:ERROR:RELAXNGV:RELAXNG_ERR_NOTELEM: Expecting an element got text

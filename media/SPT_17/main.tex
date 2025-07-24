@@ -1,0 +1,113 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{parskip}         
+\usepackage{microtype}       
+\usepackage{lmodern}         
+\usepackage{titlesec}        
+\usepackage{setspace}        
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot[L]{SPT-17}
+
+% Custom geometry settings
+\geometry{
+    top=1in,
+    bottom=1in,
+    left=1.25in,
+    right=1.25in
+}
+
+\fancyhead[R]{Évariste}
+
+% Line spacing
+\onehalfspacing
+
+% Title format customization
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{2em}{1em}
+
+\title{\vspace{-2cm}SPT 17}
+\author{Himanshu, Taraash}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{GEOMETRY}
+\begin{enumerate}
+
+    \item Given a triangle \emph{ABC}, find the area of the triangle formed by the reflections of D, E, F along A, B, C respectively, where \emph{AD, BE, CF} are medians of the triangle \emph{ABC}.
+    
+\end{enumerate}
+
+\section{NUMBER THEORY}
+\begin{enumerate}
+  
+    \item Prove that if \emph{ab} is a perfect square and \emph{gcd(a, b) = 1}, \emph{a} and \emph{b} must both be perfect squares. {\color{red} just do prime factorization}
+
+    \item If \(a,b,c\) be real numbers greater than 1 with \[\lfloor a \rfloor\ b = \lfloor b \rfloor c = \lfloor c \rfloor a \].
+    Prove that $a=b=c$. {\color{red} $\frac{\lfloor a\rfloor b}{a}=c \Rightarrow b \geq \lfloor c \rfloor \rightarrow \lfloor b \rfloor = \lfloor c \rfloor. \textit{ using similarity we get } \lfloor a \rfloor = \lfloor b \rfloor = \lfloor c \rfloor, \textit{ and then} a=b=c.  $} {\color{gray} SMMC 2024, B1}
+
+\end{enumerate}
+
+
+\section{ALGEBRA}
+    
+\begin{enumerate}
+    
+    \item Let \emph{a, b, c} be positive real numbers such that \[\frac{a}{1 + a} + \frac{b}{1+b} + \frac{c}{1 + c} = 1\]
+    Prove that \(abc < \frac{1}{8}\).
+
+    \item Find all real numbers \emph{a} such that \( 3 < a < 4\) and \( a(a - 3\{a\})\) is an integer. (\emph{\{x\} denotes the fractional part of x}).
+
+    \item Find all fractions that can be written simultaneously in the forms 
+    \[
+    \frac{7k - 5}{5k - 3} \quad \text{and} \quad \frac{6l - 1}{4l - 3}
+    \]
+    for some integers \emph{k, l}.
+    
+\end{enumerate}
+
+\section{PIGEONHOLE PRINCIPLE}
+\begin{enumerate}
+
+    \item Given any set of $n$ integers $a_1, a_2, \cdots, a_n$, prove that there must exist $0 \leq k < l \leq n$ such that $\sum_{j=k+1}^{l}a_j$ is divisible by $n$.
+
+\end{enumerate}
+
+\section{SEQUENCES}
+\begin{enumerate}
+
+    \item Given are the positive integers $a_{0},\dots,a_{100}$ such that $a_{1} > a_{0}$, $a_{2} = 3a_{1} - 2a_{0}$, $a_{3} = 3a_{2} - 2a_{1}$,$\dots$,$a_{100} = 3a_{99} - 2a_{98}$. Prove that $a_{100} > 299$.
+    
+    \item Evaluate \[ \sum_{k=1}^{\inf} \frac{k^2}{2^k}\]
+
+    \item The sequence of integers $a_0, a_1, \cdots$ has the property that for each $i\geq2, a_i$ is either $2a_{i-1}-a_{i-2}$ or $2a_{i-2}-a_{i-1}$. \\ Given that $a_{2023}$ and $a_{2024}$ are consecutive integers, prove that $a_0$ and $a_1$ are also consecutive. \\ \textit{(Note that 6 and 7 are consecutive, and so are 7 and 6.)}
+
+    \item For positive integers $n$, the sequence $a_0, a_1, a_2, \cdots$ is defined by \[
+    a1=1; \quad a_n=\left(\frac{n+1}{n-1}\right)(a_0+a_1+\cdots +a_{n-1}),\quad n>1.
+    \]
+    Determine the value of $a_{1997}$.  {\color{red} $a_n=(n+1)2^{n-2}$}
+
+\end{enumerate}
+
+\section{COMBINATORICS}
+\begin{enumerate}
+    % \item How many bit strings of length 10 contain either five consecutive 0's or five consecutive 1's?
+    \item You have a fair 2019-sided die with faces labeled \(1, 2, \dots, 2019\). After each roll, replace the \emph{n}-sided die with \emph{(n+1)}-sided die that has the \emph{n} sides of the previous die here and the additional side being the number she just rolled. What is the probability that your \(2019^{th}\) roll is a 2019? {\color{red} Problem is symmetric, hence $1/2019$}
+\end{enumerate}
+
+\vspace{100pt}
+\begin{center}
+\begin{tikzpicture}
+  \draw[scale=0.5,domain=0:360,smooth,variable=\t] plot(\t:{sin(10*\t)});
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
+
+

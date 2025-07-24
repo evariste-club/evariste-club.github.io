@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xml:id="pwnhub" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>PWNHUB</title>
+  <p>CTF's we started organizing. This website will be updated in due time, but till then, find the old website <url href="https://evariste-club.github.io/pwnhub/index.html">here</url>.</p>
+  <subsection xml:id="ellie">
+    <title>Ellie</title>
+    <p>
+      Our very first box! The goal was to familiarize myself and others with the basic infrastructure, <c>ssh</c>'ing into a box and using simple commands to retrieve a flag.
+    </p>
+  </subsection>
+
+  <subsection xml:id="benjamin">
+    <title>Benjamin</title>
+    <p>
+      Our second box! This time, we aimed to delve deeper into the system, exploring user permissions and file structures to uncover the flag.
+    </p>
+  </subsection>
+  
+  <p>bar</p>
+</section>
