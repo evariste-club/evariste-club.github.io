@@ -7,16 +7,16 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1",
   "title": "Prosort Euler",
-  "body": " Prosort Euler   An event we're doing with FooBar for ESYA'25    My First Subsection  Some more words  foo   A frog   A nice-looking frog with a longish description.    Bar:   "
+  "body": " Prosort Euler   An event we're doing with FooBar for ESYA'25     The first exercise   Some introduction     First    Hint      Second      "
 },
 {
-  "id": "subsection-1-4",
+  "id": "subsection-1-1",
   "level": "2",
-  "url": "prosort.html#subsection-1-4",
-  "type": "Figure",
+  "url": "prosort.html#subsection-1-1",
+  "type": "Checkpoint",
   "number": "1.1",
-  "title": "",
-  "body": " A frog   A nice-looking frog with a longish description.   "
+  "title": "The first exercise.",
+  "body": " The first exercise   Some introduction     First    Hint      Second    "
 },
 {
   "id": "pwnhub",
@@ -25,7 +25,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2",
   "title": "PWNHUB",
-  "body": " PWNHUB  CTF's we started organizing.   Ellie  Our very first box! The goal was to familiarize myself and others with the basic infrastructure, ssh 'ing into a box and using simple commands to retrieve a flag.    Benjamin  Our second box! This time, we aimed to delve deeper into the system, exploring user permissions and file structures to uncover the flag.   bar  "
+  "body": " PWNHUB  CTF's we started organizing. This website will be updated in due time, but till then, find the old website here .   Ellie  Our very first box! The goal was to familiarize myself and others with the basic infrastructure, ssh 'ing into a box and using simple commands to retrieve a flag.    Benjamin  Our second box! This time, we aimed to delve deeper into the system, exploring user permissions and file structures to uncover the flag.   bar  "
 }
 ]
 
