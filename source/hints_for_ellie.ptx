@@ -1,0 +1,126 @@
+<chapter xml:id="ch-let-s-begin">
+    <title>Let's begin</title>
+    <p>The most important command you should be aware of is <c>man</c>, it stands for manual page
+        and it opens up the documentation of any command that supports it (which is every single
+        command!). I asked you to <c>ssh</c> into the box, so let's take a quick look at the <c>man
+        page</c> of <c>ssh</c> with</p>
+    <program language="sh">
+        <input type="text" value="man ssh"></input>
+    </program>
+    <p>Output: <url source="../images/ellie-image.png">Output of man ssh</url></p>
+    <p>Take a look at the highlighted part, I mentioned you should <c>ssh</c> into <c>192.168.33.113</c>
+        (which is our <em>host</em>) as user <c>first_time</c>, so that makes our final command to
+        be</p>
+    <program language="sh">
+        <input type="text" value="ssh first_time@192.168.33.113"></input>
+    </program>
+    <p>Executing this for the first time, you will get something like this: <url
+            source="../images/ellie-image-1.png">Host authenticity</url></p>
+    <p>You get this because <c>ssh</c> cannot verify if I'm a good guy or not, say <em>yes</em> to
+        that. After that you'll be asked to put in the password <c>GH{}()[]</c>, then you'll be
+        greeted and we'll wait for me to automatically redirect you to a virtual machine I've set up
+        (I don't want you snooping around on my laptop!). You don't have to worry about this step,
+        but just in case you were curious, this is why you will see two IP addresses when you exit.</p>
+    <section xml:id="sec-now-the-challenge-actually-starts">
+        <title>Now the challenge actually starts</title>
+        <p>You may notice you are greeted with a very... limiting looking terminal, you get
+            absolutely no information about where you are, who you are and whatever else the
+            terminal you used to get here showed you. This is the classic <c>sh</c> shell that
+            decades old Unix shipped with, you might wish to try out the <em>B</em>ourne <em>A</em>
+            gain <em>SH</em>ell (let's see if you can find the command to do so).</p>
+        <p>Take a look now at the commands I've mentioned you might need, take a look at the <c>man</c>
+            pages of them, try out running the command with <c>--help</c> or <c>-h</c> for some
+            shorter info. Fun fact, you can type <c>man man</c> to see what the <c>man</c> command
+            does!</p>
+        <p>That's it for this one, I'll keep adding stuff here till you finally get to the flag.
+            (1256, 3 Apr)</p>
+    </section>
+    <section xml:id="sec-walkthrough-ellie">
+        <title>Walkthrough</title>
+        <p>I mentioned the flag is in the least updated directory, let's take a look at the manual
+            page of <c>ls</c> with <c>man ls</c>. Output: <url source="../images/ellie-image-2.png">Out
+            of man ls</url></p>
+        <p>Take a look at the <c>-a</c> and <c>-c</c> flags, that's what we need. We can also use
+            the <c>-l</c> flag, that'll help us too.</p>
+        <p>Output <url source="../images/ellie-image-3.png">ls -alc</url></p>
+        <p>You'll see my terminal <em>probably</em> looks better than yours, that's because I'm
+            using <c>bash</c> which provided a bunch of helpful features. But mainly, look at the
+            output (ignore the <c>.ssh</c>, <c>.bashrc</c>, <c>.hushlogin</c>, <c>.</c>, and <c>..</c>).
+            The <c>.orisit</c> directory is what we need. Let us now change into that directory with <c>
+            cd</c>. The command to do so is</p>
+        <program language="sh">
+            <input type="text" value="cd .orisit"></input>
+        </program>
+        <p>Now we have a bunch of files, the flag is in the human readable file, taking a look at
+            the man page of <c>file</c>, we see it tells us exactly what we need.</p>
+        <p>
+            <url source="../images/ellie-image-4.png">man file</url>
+        </p>
+        <p>Now you could go ahead and run <c>file</c> for every single file, but a better way is to
+            use the glob, <c>*</c>, which encompasses everything all at once. But running <c>file *</c>
+            would give you a ton of errors, that's because some files start with a hyphen (<c>-</c>)
+            and most linux utilities think that means a different <c>switch</c> should follow, take
+            a look at the <c>ls</c> command we ran, we <em>turned on</em> switches <c>a</c>, <c>l</c>
+            and <c>c</c>. We fix this issue by prepending the glob with <c>./</c>, this expands to</p>
+        <program language="sh">
+            <input type="text"
+                value="file ./orisit0 ./orisit1 ./orisit16 ./- orisit17 ./orisit 18 ..."></input>
+        </program>
+        <p>and not something like</p>
+        <program language="sh">
+            <input type="text" value="file - orisit17"></input>
+        </program>
+        <p>Take a look at the following screenshot</p>
+        <p>
+            <url source="../images/ellie-image-6.png">main</url>
+        </p>
+        <p>You'll see the command I ran is significantly more complicated, I want you try and see
+            what <c>grep</c> does (take a look at the manual!) and what the pipe operator (<c>|</c>)
+            does. Play around with what happens when you don't do this.</p>
+        <p>Take a look at the arguments I gave to <c>file</c>. All hidden files or directories in
+            Linux are denoted by a <c>.</c> at the start of their name, so if we wish to include
+            them, we must use <c>.*</c> to capture them.</p>
+        <p>All human readable files are ASCII, that's why I filtered them down so. Now, finally, our
+            flag is in the file which starts with <c>-</c>. The only such file is <c>- orisit17</c>.</p>
+        <p>To read the contents, we use the <c>cat</c> command (or anything else like <c>more</c> or <c>
+            less</c>).</p>
+        <p>
+            <em>(you'll see I used a <c>\</c> to escape the space in the name, you could either use
+                quotes to enclose the name)</em>
+        </p>
+        <p>
+            <url source="../images/ellie-image-7.png">flag</url>
+        </p>
+        <p><term>We now have the flag.</term> (1321, April 4)</p>
+    </section>
+    <section xml:id="sec-other-methods">
+        <title>Other methods</title>
+        <p>
+            <ul>
+                <li>
+                    <p><c>cat -- <sq>- orisit17</sq></c> also works, the <c>--</c> part tells Unix
+                        that it shall no longer interpret anything as switches after this. (<url
+                            href="mailto:priyanshu24067@iiitd.ac.in">Priyanshu Kumar</url>)</p>
+                </li>
+                <li>
+                    <p><c>find /* -name <q>-*</q> 2>/dev/null</c> finds every file starting with a
+                        hyphen from the root (<c>/</c>) of the filesystem, and errors are redirected
+                        to nothingness (<c>/dev/null</c> is always nothing, <c>2></c> redirects <c>
+                        stderr</c> <em>(the errors)</em> to <c>/dev/null</c> instead of the terminal,
+                        with is <c>/dev/stdout</c>). Play around with this, it's interesting.
+                        (adding <c>-type f</c> would've made it search only files.) (<url
+                            href="mailto:arpit23133@iiitd.ac.in">Arpit Rajput</url>)</p>
+                </li>
+                <li>
+                    <p><c>grep -r <sq>flag</sq> ~ 2> /dev/null</c> is another interesting one, <c>-r</c>,
+                        or <c>--recursive</c> searches for the string you provided in each file
+                        starting from whatever you mentioned, here, <c>~</c>, which expands to <c>
+                        /home/first_time</c>, your home. This works because the file actually has
+                        the word <em>flag</em> in it, so, be careful. (adding the <c>-i</c> flag
+                        would've made it a little more foolproof.) (<url
+                            href="mailto:irfan22298@iiitd.ac.in">Mohd Irfan Raza</url>)</p>
+                </li>
+            </ul>
+        </p>
+    </section>
+</chapter>

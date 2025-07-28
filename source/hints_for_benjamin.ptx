@@ -1,0 +1,295 @@
+<chapter xml:id="ch-let-s-start">
+    <title>Let's start</title>
+    <p>I said you'll have to scan for a server named <c>desmond</c> on a network with the same
+        subnet mask, that was <c>255.255.255.0</c>, which could be abbreviated as <c>/24</c>, take a
+        look at the following table</p>
+    <p>For a complete list, take a look <url
+            href="https://www.cloudaccess.net/cloud-control-panel-ccp/157-dns-management/322-subnet-masks-reference-table.html">
+        here</url>. <url href="https://youtube.com/@networkchuck?si=w-Nr39dWBydAlSCi">NetworkChuck</url>
+        has a good video explaining what this means.</p>
+    <p>Let's first take a look at the IP address of the server we're currently in by running</p>
+    <program language="sh">
+        <input type="text" value="ip a"></input>
+    </program>
+    <p>This will give us an IP, that, along with our subnet mask knowledge tells us that <c>desmond</c>
+        must have an IP whose first three <em>quartets</em> are the same (that's what 255 denotes),
+        while the last one can be anything (that's what 0 signifies).</p>
+    <p>We now wish to find <c>desmond</c>'s IP address, we can run that by running a <em>no-ports</em>
+        scan via <c>nmap</c>.</p>
+    <p>Output of <c>man nmap</c>: <url source="../images/benjamin-image.png">man nmap</url></p>
+    <p>Let's see if you figure out what the command should be now (you could either try the glob
+        character <c>*</c>, or use <c>/24</c> with the IP).</p>
+    <p>When you find it, run <c>nmap</c> with only it's IP and find the services running on there.</p>
+    <p>
+        <term>Everything is misconfigured.</term>
+    </p>
+    <section xml:id="sec-another-one">
+        <title>Another one</title>
+        <p>
+            <url source="https://i.imgflip.com/4b0f1g.jpg">another one</url>
+        </p>
+        
+        <p>When you're knee deep, you'll be asked for something related to <em>FRACTRAN</em>, we
+            held an event regarding this a while back, and I released a write-up. We always send
+            everything on telegram, or on mail.</p>
+    </section>
+    <section xml:id="sec-walkthrough-benjamin">
+        <title>Walkthrough</title>
+        <p>If you read the hints for Ellie, I mentioned that you're actually <c>ssh</c><sq>ing into
+            my personal laptop, after which you</sq>re automatically redirected to a virtual
+            machine. Hence the IP you put in may not be the IP of the machine you land it, to get
+            the correct IP, we run</p>
+        <program language="sh">
+            <input type="text" value="ip addr"></input>
+        </program>
+        <p>Output: <url source="../images/benjamin-image_1.png">first</url></p>
+        <p>Nice! So our IP is <c>192.168.124.168</c>. We know want to discover another host living
+            on the same network and the same subnet mask, that is <c>255.255.255.0</c>, this means
+            that the first three <em>quartets</em> must be the same, so our IP for <c>desmond</c>
+            must look like <c>192.168.124.*</c>. We'll use <c>nmap</c> for this task, specifically
+            the no-ports option as that'll speed things up.</p>
+        <program language="sh">
+            <input type="text" value="nmap -sP 192.168.124.*"></input>
+        </program>
+        <p>Output: <url source="../images/benjamin-image-1.png">Second</url> Note that I used the <c>
+            sP</c>, and not <c>sn</c>, like I previously mentioned (look at the documentation!).</p>
+        <p>An alternate command that also works is</p>
+        <program language="sh">
+            <input type="text" value="nmap -sP 192.168.124.0/24"></input>
+        </program>
+        <p>(take a look at the table above, this method is preferred)</p>
+        <p>We have now found desmond at <c>192.168.124.247</c>, let's run <c>nmap</c> again, but
+            this time searching for ports. We'll do</p>
+        <program language="sh">
+            <input type="text" value="nmap 192.168.124.247"></input>
+        </program>
+        <p>
+            <url source="../images/benjamin-image-2.png">third</url>
+        </p>
+        <p>We find an <c>ftp</c> server, which stands for the file transfer protocol. Fascinating,
+            let's see if we can access it.</p>
+        <program language="sh">
+            <input type="text" value="ftp 192.168.124.247"></input>
+        </program>
+        <p>
+            <url source="../images/benjamin-image-3.png">fourth</url>
+        </p>
+        <p>I put my login credentials, we got nowhere. Let's take a look at the man page.</p>
+        <p>
+            <url source="../images/benjamin-image-4.png">fifth</url>
+        </p>
+        <p>What's this? Let's try it</p>
+        <program language="sh">
+            <input type="text" value="ftp -a 192.168.124.247"></input>
+        </program>
+        <p><url source="../images/benjamin-image-5.png">sixth</url> We're in!</p>
+        <p>Let's now explore, typing <c>ls</c>, we see a <c>flag</c> and <c>hint</c> file. Take a
+            look at what you get when you type <c>help</c> in the terminal, which command could you
+            use to view this file?</p>
+        <p>You might try <c>get</c> but that'll give you permission errors. Let's try <c>less</c></p>
+        <p>
+            <url source="../images/benjamin-image-6.png">seventh</url>
+        </p>
+        <p>Ope! Not that easy! Let's exit this, and try again with <c>nmap</c>.</p>
+        <p>
+            <url source="../images/benjamin-image-7.png">eigth</url>
+        </p>
+        <program language="sh">
+            <input type="text" value="nmap -p- 192.168.124.247"></input>
+        </program>
+        <p><c>-p-</c> tells <c>nmap</c> to scan every port.</p>
+        <p>
+            <url source="../images/benjamin-image-8.png">ninth</url>
+        </p>
+        <p>Whoa, there's a lot more stuff going on here!</p>
+        <p>Let's use a few powerful features <c>nmap</c> provides to dig deeper. This time I'll
+            limit the ports to only the ones shown by including <c>-p696,3002,6379</c> (we're done
+            with the <c>ftp</c> service).</p>
+        <p>One more look at the man page: <url source="../images/benjamin-image-9.png">tenth</url></p>
+        <p>Let's run</p>
+        <program language="sh">
+            <input type="text" value="nmap -sV -sC -p696,3002,6379 192.168.124.247"></input>
+        </program>
+        <p>
+            <url source="../images/benjamin-image-10.png">ele</url>
+        </p>
+        <p>Fascinating, what's <c>netcat</c>? If we take a look at the commands I said you might
+            need, theres something called <c>nc</c>, let's take a look</p>
+        <p>
+            <url source="../images/benjamin-image-11.png">twe</url>
+        </p>
+        <p>This looks promising! Let's run</p>
+        <program language="sh">
+            <input type="text" value="nc 192.168.124.247 696"></input>
+        </program>
+        <p>as that's the service that told us about <c>nc</c>.</p>
+        <p>
+            <url source="../images/benjamin-image-13.png">fourt</url>
+        </p>
+        <p>Fair enough, not much information, let's try it on port 3002.</p>
+        <p>
+            <url source="../images/benjamin-image-14.png">fift</url>
+        </p>
+        <p>We found something! No idea about the PIN though, but there's another service called <c>
+            redis</c> going on. Let's try typing <c>redis</c> in our terminal. That didn't get us
+            anything, let's search for redis on the web.</p>
+        <p>
+            <url source="../images/benjamin-image-15.png">sixt</url>
+        </p>
+        <p>Found this on their GitHub repository, let's run <c>redis-cli</c>. We get something,
+            let's take a look at the help section.</p>
+        <p>(as a side note, running <c>apropos redis</c> would have also revealed what we needed, <c>
+            apropos</c> is the search utility in linux, take a look at the man page!)</p>
+        <p>
+            <url source="../images/benjamin-image-16.png">seven</url>
+        </p>
+        <p>Ok, so now let's run</p>
+        <program language="sh">
+            <input type="text" value="redis-cli -h 192.168.124.247"></input>
+        </program>
+        <p>We get... Something. This time, the man page isn't helpful. But, take a look at the help
+            out above, we see something like <c>AUTH username pass</c>, let's run that. If I put in <c>
+            star1</c> I get an error. Remember, I said everything is misconfigured. Let's try some
+            common passwords, like</p>
+        <p>
+            <ul>
+                <li>
+                    <p>admin</p>
+                </li>
+                <li>
+                    <p>administrator</p>
+                </li>
+                <li>
+                    <p>root</p>
+                </li>
+                <li>
+                    <p>anon</p>
+                </li>
+                <li>
+                    <p>anonymous</p>
+                </li>
+            </ul>
+        </p>
+        <p>Trying and checking, we'll see that <c>auth root</c> gets us in and we get an <c>OK</c>
+            message.</p>
+        <p>If you took a look at HTB, we're doing the same thing as one of their boxes, go check
+            them out!</p>
+        <p>We now note that <c>redis</c> is a key-value NoSQL database, so there must be keys I
+            could find. If I type <c>keys</c> in the terminal, I am hinted at providing a <em>
+            pattern</em>, lets run <c>keys *</c> to find everything. We can now <c>get</c> the <em>
+            value</em> associated to the specific <em>key</em>, the <em>min</em> and <em>max</em>
+            look interesting, so let's get them.</p>
+        <p>
+            <url source="../images/benjamin-image-17.png">eig</url>
+        </p>
+        <p>Huh, if we get the <em>what</em> key aswell, we see the PIN is constrained, and we just
+            found the <em>min</em> and <em>max</em> of... something, our PIN probably lies between
+            these!</p>
+        <p>Let's find the <em>min</em> first, creating a simple python script, something like the
+            following</p>
+        <p>
+            <url source="../images/benjamin-image-18.png">nine</url>
+        </p>
+        <p>And then summing them up, we find that the minimum is <term>17710</term>.</p>
+        <p>The maximum is an interesting one, our keyword is FRACTRAN, and we did an event for this,
+            for which I released a writeup, let's search for it.</p>
+        <p><url source="../images/benjamin-image-19.png">twne</url> (on gmail)</p>
+        <p><url source="../images/benjamin-image-20.png">wef</url> (on telegram)</p>
+        <p>Nice, let's open up this PDF</p>
+        <p><url source="../images/benjamin-image-21.png">fesrd</url> A compiler, that's what we
+            need! Let's download and run this (take a look at the code if you like).</p>
+        <p><url source="../images/benjamin-image-22.png">eegr</url> Running <c>-h</c>. We need
+            PRIMEGAME, let's run it with <c>-p</c>!</p>
+        <p>This is what we get: <url source="../images/Terminal%202025-04-28%2011-13-35.gif">alt
+            text</url></p>
+        <p>Hence we get a maximum value of <term>19268</term>.</p>
+        <p>We're almost done, I swear!</p>
+        <p>Last time referencing the hints for Ellie, I used the pipe operator <c>|</c>, say we run <c>A
+            | B</c>, it takes the (standard) output of <c>A</c> and gives it to <c>B</c> as the
+            standard input, effectively meaning that you don't have to manually give it to <c>B</c>.</p>
+        <p>Back to port 3002, we need to manually give it a PIN, but we can use the <c>echo</c>
+            command to automate it, take a look:</p>
+        <p>
+            <url source="../images/benjamin-image-23.png">efegr</url>
+        </p>
+        <p>Now all we need is a simple for loop going from the min to the max, and we <c>echo</c>
+            that variable, and see if we get something. Take a look at this bash cheat sheet</p>
+        <p><url source="../images/benjamin-image-24.png">alt text</url> (found at <url
+                href="https://devhints.io/bash#loops">this link</url>)</p>
+        <p>Let's do it!</p>
+        <p>
+            <url source="../images/benjamin-image-25.png">alt text</url>
+        </p>
+        <p>And now we're spamming <c>desmond</c> and getting a ton of output, for the tiniest
+            instant you'll see a longer output, press Control-C to stop and scroll up, you'll find</p>
+        <p>
+            <url source="../images/benjamin-image-27.png">the flag</url>
+        </p>
+        <p>There are, of course, better ways to do it, for example, consider</p>
+        <p>
+            <url source="../images/benjamin-image-28.png">s</url>
+        </p>
+        <p>In text:</p>
+        <program language="sh">
+            <input type="text"
+                value="for i in {17710..19268}; do
+    echo $i | nc 192.168.124.247 3002 | grep &#x22;not it&#x22; > /dev/null
+    if [[ $? -ne 0 ]]; then
+        echo The correct PIN is $i
+        echo $i | nc 192.168.124.247 3002
+    break
+    fi
+done"></input>
+        </program>
+        <p>(which is slightly different than the one I actually ran)</p>
+        <p>This straight away gives us the PIN, but there's a lot going on here. Let's break it
+            down.</p>
+        <p><url source="../images/benjamin-image-29.png">alt text</url> This might help.</p>
+        <p>
+            <ol>
+                <li>
+                    <p><c>grep</c> returns an <em>exit code</em> of 0 (or success) when it's able to
+                        find something matching the search criteria.</p>
+                </li>
+                <li>
+                    <p>It returns something non-zero when it can't,</p>
+                </li>
+                <li>
+                    <p>The variable <c>?</c>, accessed via <c>$?</c> stores the exit code of the
+                        last run command.</p>
+                </li>
+                <li>
+                    <p>Redirecting the output (with the <c>></c> redirect) to <c>/dev/null</c>,
+                        which is a file that has nothing, a black hole, if you will. We do this so
+                        we don't see the output of the command we're running - we're only interested
+                        in the exit code.</p>
+                </li>
+                <li>
+                    <p><c>-eq</c> is the equality operator (for numbers).</p>
+                </li>
+            </ol>
+        </p>
+        <p>I guess that's explanation enough, if you still need help with something, please send me
+            a mail, and I'll update this file.</p>
+        <p>We're done! We're done! This was a lot, took me an hour to make this walkthrough! Hope
+            you had fun playing.</p>
+    </section>
+    <section xml:id="sec-a-few-points">
+        <title>A few points</title>
+        <p>
+            <ul>
+                <li>
+                    <p>If you don't like this inline stuff, you could've gone into the <c>/tmp</c>
+                        directory and wrote the script, with <c>vi</c> there.</p>
+                </li>
+                <li>
+                    <p>If you followed the exact same steps above (or in the ballpark), but didn't
+                        get the flag, it's very likely someone else was also on the machine running <c>
+                        nmap</c>, which, unfortunately, breaks the script accepting the PIN, and it
+                        takes me (another script) about 40 <em>cycles</em> to bring it back up, so
+                        if that's you, please send me a mail.</p>
+                </li>
+            </ul>
+        </p>
+    </section>
+</chapter>

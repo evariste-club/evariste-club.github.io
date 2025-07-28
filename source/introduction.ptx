@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <introduction xml:id="intro" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <p>Welcome to the brand new website for Évariste, IIIT-D's math club!</p>
-    <p>Here, you can find all the resources you need to get involved with the club, including information about upcoming events, study materials, past question papers, and more.</p>
+  <p>
+    Welcome to the brand new website for Évariste, IIIT-D's math club!
+  </p>
+
+  <p>
+    Here, you can find all the resources you need to get involved with the club, including information about upcoming events, study materials, past question papers, and more.
+  </p>
 </introduction>

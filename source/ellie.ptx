@@ -1,0 +1,21 @@
+<chapter xml:id="ch-ellie">
+    <title>Ellie</title>
+    <p>The flag is inside an Ubuntu VM, I ask you to <c>ssh</c> into my personal computer, <c>
+        192.168.33.113</c> as user <c>first_time</c> whose password is <c>GH{}()[]</c>, after which
+        you'll be automatically redirected to the VM (which is at <c>192.168.124.34</c>). You'll be
+        prompted for confirmation by <c>ssh</c> when it's your first time, so you'll have to say <em>
+        yes</em> to that.</p>
+    <p>The flag is stored inside the last updated directory. It is the only human-readable file
+        whose name starts with a <c>-</c>.</p>
+    <p>
+        <url href="hints_for_ellie.html#walkthrough">Walkthrough</url>
+    </p>
+    <p>The challenge will end after a week, around the 9th of April.</p>
+    <p>Commands you might need to solve the challenge: <c>ls</c>, <c>cd</c>, <c>file</c>, <c>du</c>, <c>
+        grep</c>, <c>find</c>, <c>man</c>, <c>help</c>, <c>&#x3C;command> --help</c>.</p>
+    <p>When you've found the flag, please mail it to us at <url
+            href="mailto:evariste@sc.iiitd.ac.in">evariste@sc.iitd.ac.in</url>.</p>
+    <p>Number of people that have submitted the flag (as of 1325, April 6): 24</p>
+    <p>If you liked these challenges (we will do more of these if there is enough interest!), check
+        out <url href="https://overthewire.org/wargames/bandit">OverTheWire</url>.</p>
+</chapter>

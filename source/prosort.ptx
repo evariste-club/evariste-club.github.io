@@ -29,7 +29,11 @@
           <p>
             Second
           </p>
+          <p>
+            <var /> <m>a^2=100</m>
+          </p>
         </statement>
+          
       </task>
     </exercise>
   </subsection>

@@ -1,0 +1,58 @@
+<chapter xml:id="ch-benjamin">
+  <title>Benjamin</title>
+
+  <p>
+    You should <c>ssh</c> into <c>192.168.33.113</c> as <c>star1</c> with password <c>star1</c>.
+    (It doesn't matter which network you're connected to.
+    If you are outside campus, use the VPN.
+    For a guide to using <c>ssh</c>, check out the <url href="../hints_for_ellie.html">hints</url> I wrote for Ellie.)
+  </p>
+
+  <p>
+    This time, the flag is not in the machine you'll land in! You're gonna have to search for a server named <c>desmond</c>, and the flag is on one of the services running on <c>desmond</c>.
+  </p>
+
+  <p>
+    In pointers:
+  </p>
+
+  <p>
+    <ul>
+      <li>
+        <p>
+          Search for a server named <c>desmond</c> on the same subnet mask (that is <c>255.255.255.0</c>).
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Find all the services running on <c>desmond</c>, the flag shall be revealed when you enter te correct pin (<em>you will not find it though</em>).
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Search online! That'll be your best friend.
+          Take a look at <url href="https://app.hackthebox.com/starting-point">Hack The Box</url>, most of the stuff has just been adapted from there.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    As always, hints and a walkthrough will be uploaded and updated here.
+    The challenge will end in a week, around the 22nd of April.
+  </p>
+
+  <p>
+    A non-exhaustive list of commands you might need: <c>ls</c>, <c>cd</c>, <c>du</c>, <c>grep</c>, <c>find</c>, <c>nmap</c>, <c>nc</c>, <c>man</c>, <c>help</c>, <c>&#x3C;command> --help</c>.
+  </p>
+
+  <p>
+    When you've found the flag, please mail it to us at <url href="mailto:evariste@sc.iiitd.ac.in">evariste@sc.iitd.ac.in</url>.
+  </p>
+
+  <p>
+    If you've found this one interesting, and would like to explore further, I recommend checking out <url href="https://app.hackthebox.com/starting-point">Hack The Box</url>.
+  </p>
+</chapter>
