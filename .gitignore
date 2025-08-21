@@ -1,4 +1,7 @@
 .vscode
 *.swap
 venv
+output
+.cache
+
 

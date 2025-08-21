@@ -80,7 +80,8 @@ if page == "🏠 Home":
     st.markdown('<h2 style="text-align: center; color: #7f8c8d;">IIIT-D\'s Premier Mathematics Club</h2>', unsafe_allow_html=True)
     
     # Welcome section
-    st.markdown('<div class="card">', unsafe_allow_html=True)
+    # st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown('<div >', unsafe_allow_html=True)
     st.markdown("""
     ### 🎉 Welcome to Évariste!
     
@@ -105,11 +106,12 @@ if page == "🏠 Home":
         st.metric("CTF Challenges", "15", "↗️ +5")
     
     # Featured content
-    st.markdown('<h3 class="section-header">🚀 What's New</h3>', unsafe_allow_html=True)
+    st.markdown("<h3 class=\"section-header\">🚀 What's New</h3>", unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown('<div class="event-card">', unsafe_allow_html=True)
+        # st.markdown('<div class="event-card">', unsafe_allow_html=True)
+        st.markdown('<div >', unsafe_allow_html=True)
         st.markdown("""
         ### 🎯 ProSort Euler
         **New Event with FooBar for ESYA'25!**
@@ -119,7 +121,8 @@ if page == "🏠 Home":
         st.markdown('</div>', unsafe_allow_html=True)
     
     with col2:
-        st.markdown('<div class="event-card">', unsafe_allow_html=True)
+        # st.markdown('<div class="event-card">', unsafe_allow_html=True)
+        st.markdown('<div >', unsafe_allow_html=True)
         st.markdown("""
         ### 🔐 PWNHUB CTF
         **Capture The Flag Challenges**

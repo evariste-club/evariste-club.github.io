@@ -1,0 +1,50 @@
+INFO    : Building target web
+INFO    : XSL conversion of /home/ec/source_github/my_projects/evariste-club.github.io/source/main.ptx by /home/ec/.ptx/2.24.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/ec/.ptx/2.24.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Generating any needed assets.
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /home/ec/source_github/my_projects/evariste-club.github.io/output/web.
+WARNING : Cannot find npm.  Will try to use prebuilt CSS files instead.
+WARNING : Unable to install npm packages to build css files.  Non-default CSS themes require node.js and npm to be installed.  See https://pretextbook.org/doc/guide/html/node-and-npm.html
+WARNING : 
+INFO    : discovering source file's directory name: /home/ec/source_github/my_projects/evariste-club.github.io/source
+INFO    : verifying and expanding input directory: /home/ec/source_github/my_projects/evariste-club.github.io/source/../generated-assets
+INFO    : input directory expanded to absolute path: /home/ec/source_github/my_projects/evariste-club.github.io/generated-assets
+INFO    : verifying and expanding input directory: /home/ec/source_github/my_projects/evariste-club.github.io/source/../assets
+INFO    : input directory expanded to absolute path: /home/ec/source_github/my_projects/evariste-club.github.io/assets
+INFO    : XSL conversion of /home/ec/source_github/my_projects/evariste-club.github.io/source/main.ptx by /home/ec/.ptx/2.24.0/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/ec/.ptx/2.24.0/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 7.9.8
+INFO    : Downloading Runestone Services, version 7.9.8
+INFO    : Extracting Runestone Services from archive file
+INFO    : CSSBuilder packages not installed. Relying on prebuilt default-modern. To fix this, run 'npm install' in the pretext/script/cssbuilder directory. https://pretextbook.org/doc/guide/html/node-and-npm.html
+INFO    : Using prebuilt CSS theme: default-modern with options: {'options': {'primary-color': '#195684', 'secondary-color': '#932c1c'}, 'contrast-checks': {'primary-color': '#fff', 'secondary-color': '#fff', 'primary-color-dark': '#23241f'}}
+INFO    : converting /home/ec/source_github/my_projects/evariste-club.github.io/source/main.ptx to HTML in /tmp/ptx-0vzpm42p
+INFO    : XSL conversion of /home/ec/source_github/my_projects/evariste-club.github.io/source/main.ptx by /home/ec/.ptx/2.24.0/core/xsl/pretext-html.xsl
+INFO    : messages from the log for XSL processing:
+INFO    : * PTX:INFO:   checking ONLY the last TWO YEARS of element deprecations.
+Rerun with the string parameter "author.deprecations.all" set to "yes" to check your source against all deprecations.
+WARNING : * PTX:WARNING: There are apparent XML elements in locations that should be text only (3 times).
+WARNING : * PTX:WARNING: There is an apparent XML element (<sq>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+INFO    : *              located within: "sec-other-methods" (xml:id), "Other methods" (title)
+WARNING : * PTX:WARNING: There is an apparent XML element (<q>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+WARNING : * PTX:WARNING: In a section containing subsections, any content that is not inside a subsection needs to be inside an <introduction> and/or  <conclusion>.
+INFO    : *              located within: "pwnhub" (xml:id), "PWNHUB" (title)
+WARNING : * PTX:DEPRECATE: (2024-11-19) program/input now should be program/code. An automatic correction will be attempted. (17 times)
+INFO    : *              located within: "ch-let-s-begin" (xml:id), "Let's begin" (title)
+INFO    : *              located within: "sec-walkthrough-ellie" (xml:id), "Walkthrough" (title)
+INFO    : *              located within: "ch-let-s-start" (xml:id), "Let's start" (title)
+INFO    : *              located within: "sec-walkthrough-benjamin" (xml:id), "Walkthrough" (title)
+INFO    : * --------------
+INFO    : successful application of /home/ec/.ptx/2.24.0/core/xsl/pretext-html.xsl
+INFO    : Removing temporary directory /tmp/ptx-0vzpm42p
+INFO    : Removing temporary directory /tmp/ptx-g3ouc9kh
+INFO    : 
+Finished build for target web. Run `pretext view web` to see the results.
+
+INFO    : 
+Success!  Built requested target(s) without errors.
+
+INFO    : 

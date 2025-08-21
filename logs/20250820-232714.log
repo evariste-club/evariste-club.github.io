@@ -1,0 +1,17 @@
+WARNING : Using CLI version 2.28.2 but project's `requirements.txt`
+WARNING : is configured to use 2.24.0. Consider either installing
+WARNING : CLI version 2.24.0 or running `pretext update`
+WARNING : to update `requirements.txt` and other managed files to match 2.28.2.
+INFO    : Building target web
+ERROR   : XInclude Error caused build to fail:
+ERROR   : /home/ec/source_github/my_projects/evariste-club.github.io/source/prosort.ptx:47:1:FATAL:PARSER:ERR_GT_REQUIRED: expected '>'
+/home/ec/source_github/my_projects/evariste-club.github.io/source/main.ptx:18:0:ERROR:XINCLUDE:XINCLUDE_NO_FALLBACK: could not load /home/ec/source_github/my_projects/evariste-club.github.io/source/prosort.ptx, and no fallback was found
+CRITICAL: XML syntax for source file is invalid
+INFO    : ------------------------
+CRITICAL: Failed to build without errors.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

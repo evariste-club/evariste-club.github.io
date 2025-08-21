@@ -1,0 +1,21 @@
+{
+    "testuser": {
+        "password": "password123",
+        "score": 0,
+        "solved": []
+    },
+    "hello": {
+        "password": "hello",
+        "score": 30,
+        "solved": [
+            0,
+            1,
+            2
+        ]
+    },
+    "hi": {
+        "password": "hi",
+        "score": 0,
+        "solved": []
+    }
+}
