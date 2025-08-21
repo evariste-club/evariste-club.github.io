@@ -7,7 +7,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1",
   "title": "Prosort Euler",
-  "body": " Prosort Euler   An event we're doing with FooBar for ESYA'25     The first exercise   Some introduction     First    Hint      Second          "
+  "body": " Prosort Euler   An event we're doing with FooBar for ESYA'25     The first exercise   Some introduction     First    Hint      Second            exercise 2    "
 },
 {
   "id": "subsection-1-1",
@@ -17,6 +17,15 @@ var ptx_lunr_docs = [
   "number": "1.1",
   "title": "The first exercise.",
   "body": " The first exercise   Some introduction     First    Hint      Second        "
+},
+{
+  "id": "prosort-4-1",
+  "level": "2",
+  "url": "prosort.html#prosort-4-1",
+  "type": "Checkpoint",
+  "number": "1.2",
+  "title": "exercise 2.",
+  "body": " exercise 2  "
 },
 {
   "id": "pwnhub",

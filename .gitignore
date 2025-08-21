@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 .vscode
 *.swap
 venv
-
+.cache
+logs
+strlit/users.json
+output
+.error_schema.log
