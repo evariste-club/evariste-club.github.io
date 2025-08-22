@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebGL Shader Background</title>
+  <style>
+    /* Basic CSS to make the canvas a fullscreen background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000; /* Add a fallback background color */
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      /* z-index is not strictly necessary if it's the only element,
+         but good practice for backgrounds. */
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="glcanvas"></canvas>
+
+  <!-- This is the fragment shader, which creates the visual effect. -->
+  <script type="x-shader/x-fragment" id="fragShader">
+    precision highp float;
+
+    // Uniforms are variables passed from JavaScript to the shader.
+    uniform vec3 iResolution; // The resolution of the canvas (width, height, pixelAspect)
+    uniform float iTime;      // The time in seconds since the animation started
+
+    // The main function runs for every single pixel on the screen.
+    void main() {
+        // This line sets up the coordinate system. It's normalized and scaled.
+        vec2 uv = (2.0 * gl_FragCoord.xy - iResolution.xy) * 45.0 / iResolution.y;
+        
+        // This variable will control the loop and also contribute to the final color's blue channel.
+        float depth = 1.0;
+
+        // This loop is the core of the fractal algorithm.
+        for (int i = 0; i < 100; i++) {
+            if (depth <= 0.5) {
+                break;
+            }
+            depth -= 0.0054;
+
+            // *** FIX: The order of these next two lines is critical! ***
+            // The original Shadertoy code performs the addition first (in the loop's body)
+            // and then the matrix multiplication (in the loop's increment step).
+            // The previous version had these swapped, which was causing the black screen.
+            
+            // 1. Add the cosine wave offset (translation)
+            uv.x += cos(0.2 * uv.y + iTime) * 3.0;
+            
+            // 2. Apply the matrix transformation (rotation/scaling)
+            uv *= mat2(cos(vec4(70.0, 81.0, 103.0, 70.0)));
+        }
+
+        // The final color is calculated based on the final position of 'uv' and the final 'depth'.
+        vec3 finalColor = vec3(uv.x * 0.01 + 0.5, uv.y * 0.01 + 0.5, depth);
+
+        // Set the final pixel color. The '1.0' is the alpha (opacity), making it fully opaque.
+        gl_FragColor = vec4(finalColor, 1.0);
+    }
+  </script>
+
+  <!-- This is the vertex shader. Its job is to position the vertices of the shape we're drawing. -->
+  <!-- In this case, it's just drawing a giant triangle that covers the whole screen. -->
+  <script type="x-shader/x-vertex" id="vertShader">
+    attribute vec2 position;
+    void main() {
+        gl_Position = vec4(position, 0.0, 1.0);
+    }
+  </script>
+
+  <script>
+    // Standard WebGL setup code.
+    const canvas = document.getElementById('glcanvas');
+    const gl = canvas.getContext('webgl');
+    if (!gl) {
+      // Use a more user-friendly message instead of alert().
+      document.body.innerHTML = '<div style="color: white; text-align: center; padding-top: 50px; font-family: sans-serif;">Sorry, WebGL is not supported on your browser.</div>';
+    } else {
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Function to compile a single shader
+        function compileShader(type, source) {
+          const shader = gl.createShader(type);
+          gl.shaderSource(shader, source);
+          gl.compileShader(shader);
+          if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            console.error('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+            gl.deleteShader(shader);
+            return null;
+          }
+          return shader;
+        }
+
+        // Get shader source code from the DOM
+        const vsSource = document.getElementById('vertShader').text;
+        const fsSource = document.getElementById('fragShader').text;
+        
+        // Compile and link shaders into a program
+        const vertexShader = compileShader(gl.VERTEX_SHADER, vsSource);
+        const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fsSource);
+
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        // This creates a single triangle that fills the entire screen.
+        // It's an efficient way to run a fragment shader on every pixel.
+        const position = new Float32Array([-1, -1, 3, -1, -1, 3]);
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, position, gl.STATIC_DRAW);
+
+        const posAttrib = gl.getAttribLocation(program, "position");
+        gl.enableVertexAttribArray(posAttrib);
+        gl.vertexAttribPointer(posAttrib, 2, gl.FLOAT, false, 0, 0);
+
+        // Get the locations of our uniform variables in the shader program.
+        const iResolution = gl.getUniformLocation(program, "iResolution");
+        const iTime = gl.getUniformLocation(program, "iTime");
+
+        // The main animation loop
+        function render(time) {
+          // Update uniforms with new values for the current frame.
+          gl.uniform3f(iResolution, canvas.width, canvas.height, 1.0);
+          gl.uniform1f(iTime, time * 0.001); // Convert time to seconds
+
+          // Draw the triangle.
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+          
+          // Request the next frame.
+          requestAnimationFrame(render);
+        }
+        // Start the animation loop.
+        requestAnimationFrame(render);
+    }
+  </script>
+</body>
+</html>
