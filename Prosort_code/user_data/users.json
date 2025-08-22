@@ -1,0 +1,78 @@
+{
+  "83572161-1e3d-44b6-834b-b43776cc58a0": {
+    "user_id": "83572161-1e3d-44b6-834b-b43776cc58a0",
+    "username": "math_wizard",
+    "email": "wizard@mathclub.com",
+    "full_name": "Math Wizard",
+    "institution": "IIIT-D",
+    "student_id": "STU001",
+    "phone": "+91-9876543210",
+    "date_of_birth": "1995-01-15",
+    "grade_level": "Graduate",
+    "mathematical_background": [
+      "Algebra",
+      "Calculus",
+      "Number Theory"
+    ],
+    "interests": [
+      "Problem Solving",
+      "Competitions",
+      "Research"
+    ],
+    "created_at": "2025-08-23T00:20:05.460949",
+    "last_login": "2025-08-23T00:20:05.460958",
+    "is_active": true,
+    "is_verified": false,
+    "profile_complete": false
+  },
+  "ef0ad45b-8734-43e9-83f2-0181f03ed6a6": {
+    "user_id": "ef0ad45b-8734-43e9-83f2-0181f03ed6a6",
+    "username": "problem_solver",
+    "email": "solver@mathclub.com",
+    "full_name": "Problem Solver",
+    "institution": "IIIT-D",
+    "student_id": "STU002",
+    "phone": "+91-9876543211",
+    "date_of_birth": "1996-03-20",
+    "grade_level": "Undergraduate",
+    "mathematical_background": [
+      "Geometry",
+      "Probability"
+    ],
+    "interests": [
+      "Problem Solving",
+      "Competitions"
+    ],
+    "created_at": "2025-08-23T00:20:05.462895",
+    "last_login": "2025-08-23T00:20:05.462904",
+    "is_active": true,
+    "is_verified": false,
+    "profile_complete": false
+  },
+  "77b59277-3264-4dc0-80e5-f985ee0777da": {
+    "user_id": "77b59277-3264-4dc0-80e5-f985ee0777da",
+    "username": "calculus_master",
+    "email": "master@mathclub.com",
+    "full_name": "Calculus Master",
+    "institution": "IIIT-D",
+    "student_id": "STU003",
+    "phone": "+91-9876543212",
+    "date_of_birth": "1994-07-10",
+    "grade_level": "Graduate",
+    "mathematical_background": [
+      "Calculus",
+      "Linear Algebra",
+      "Optimization"
+    ],
+    "interests": [
+      "Research",
+      "Teaching",
+      "Applied Math"
+    ],
+    "created_at": "2025-08-23T00:20:05.465294",
+    "last_login": "2025-08-23T00:20:05.465303",
+    "is_active": true,
+    "is_verified": false,
+    "profile_complete": false
+  }
+}
