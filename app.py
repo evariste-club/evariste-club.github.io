@@ -6,6 +6,7 @@ import numpy as np
 from datetime import datetime, timedelta
 import requests
 import markdown
+from pages.prosort_euler import prosort_euler 
 
 # Page configuration
 st.set_page_config(
@@ -97,13 +98,13 @@ if page == "🏠 Home":
     # Quick stats
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("Active Members", "45+", "↗️ +12%")
+        st.metric("Active Members", "80+")
     with col2:
-        st.metric("Events This Month", "8", "↗️ +3")
+        st.metric("Events This Month", "10+")
     with col3:
-        st.metric("Study Sessions", "24", "↗️ +6")
+        st.metric("Study Sessions", "4")
     with col4:
-        st.metric("CTF Challenges", "15", "↗️ +5")
+        st.metric("CTF Challenges", "5")
     
     # Featured content
     st.markdown("<h3 class=\"section-header\">🚀 What's New</h3>", unsafe_allow_html=True)
@@ -217,48 +218,7 @@ elif page == "📚 Study Materials":
 
 # ProSort Euler page
 elif page == "🎯 ProSort Euler":
-    st.markdown('<h2 class="section-header">🎯 ProSort Euler</h2>', unsafe_allow_html=True)
-    
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.markdown("""
-    An event we're doing with FooBar for ESYA'25. This is a unique competition that combines 
-    mathematical problem-solving with programming challenges.
-    """)
-    st.markdown('</div>', unsafe_allow_html=True)
-    
-    # Exercise 1
-    st.subheader("📝 Exercise 1: The First Exercise")
-    st.markdown("Some introduction")
-    
-    with st.expander("Task 1: First"):
-        st.markdown("**Statement:** First")
-        st.markdown("**Hint:** Hint")
-    
-    with st.expander("Task 2: Second"):
-        st.markdown("**Statement:** Second")
-        st.markdown("**Mathematical Expression:** a² = 100")
-        st.markdown("**Solution:** a = ±10")
-    
-    # Interactive problem solver
-    st.subheader("🧮 Problem Solver")
-    problem_type = st.selectbox("Select Problem Type:", ["Linear Equation", "Quadratic Equation", "System of Equations"])
-    
-    if problem_type == "Linear Equation":
-        st.markdown("**Solve: ax + b = c**")
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            a = st.number_input("a", value=2.0, key="a_linear")
-        with col2:
-            b = st.number_input("b", value=3.0, key="b_linear")
-        with col3:
-            c = st.number_input("c", value=7.0, key="c_linear")
-        
-        if a != 0:
-            x = (c - b) / a
-            st.success(f"**Solution:** x = {x}")
-        else:
-            st.error("Invalid equation: 'a' cannot be zero")
-
+    prosort_euler()
 # PWNHUB CTF page
 elif page == "🔐 PWNHUB CTF":
     st.markdown('<h2 class="section-header">🔐 PWNHUB</h2>', unsafe_allow_html=True)
@@ -276,12 +236,63 @@ elif page == "🔐 PWNHUB CTF":
     """)
     
     with st.expander("Hints for Ellie"):
-        st.markdown("""
-        **Hint 1:** Start with basic enumeration
-        **Hint 2:** Check for open ports and services
-        **Hint 3:** Look for hidden files and directories
-        **Hint 4:** Use common Linux commands
-        """)
+        with st.expander("🛠 Getting Started"):
+            st.markdown("""
+
+            The most important command to know is `man`, which shows the manual for any command.  
+            Start by looking up how `ssh` works:
+
+            ```bash
+            man ssh
+            ```
+
+            You’ll notice that to SSH into the target, the command should be:
+
+            ```bash
+            ssh first_time@192.168.33.113
+            ```
+
+            > ⚠️ The first time you run this, you'll get a message about host authenticity.  
+            Say **yes** to continue.
+
+            Then you'll be asked for the password:
+
+            ```
+            GH{}()[]
+            ```
+
+            Once you log in, you'll be redirected to a virtual machine.
+
+            ---
+
+            """)
+        with st.expander("💻 Inside the Box"):
+            st.markdown("""
+
+            You'll be dropped into a minimal terminal using the `sh` shell.  
+            It doesn't give you much info, so try switching to something more user-friendly:
+
+            ```bash
+            bash
+            ```
+
+            Now you're in a more familiar shell environment.
+
+            > 💡 Tip: Use `man man` to read about the `man` command itself!
+
+            Start enumerating with tools like:
+
+            ```bash
+            whoami
+            ls -la
+            cat <filename>
+            ```
+
+            Explore the filesystem, look for unusual files, and read their contents — your flag is hidden somewhere in plain sight!
+
+            Good luck!
+            """)
+
     
     # Benjamin CTF Box
     st.subheader("🎯 Benjamin")
@@ -304,7 +315,7 @@ elif page == "🔐 PWNHUB CTF":
     ctf_data = {
         "Box": ["Ellie", "Benjamin"],
         "Difficulty": ["Easy", "Medium"],
-        "Status": ["Completed", "In Progress"],
+        "Status": ["Completed", "Completed"],
         "Points": [100, 200],
         "Time Taken": ["2 hours", "4 hours"]
     }
@@ -441,6 +452,6 @@ elif page == "👥 About Us":
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #7f8c8d; padding: 2rem;">
-    <p>© 2024 Évariste Math Club, IIIT-D. Built with ❤️ and Streamlit.</p>
+    <p>© 2025 Évariste Math Club, IIIT-D. Built with ❤️</p>
 </div>
 """, unsafe_allow_html=True)
